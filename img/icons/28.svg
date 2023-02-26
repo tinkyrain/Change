@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="16.9332mm" height="16.9332mm" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 7.949 7.949"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil3 {fill:#FEFEFE}
+    .fil2 {fill:#003249}
+    .fil1 {fill:#00AC6C}
+    .fil0 {fill:#010101;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+<symbol id="Fm4-477-0" viewBox="78.1774 -52.9505 6.12723 8.62921">
+ <polygon class="fil0" points="78.1774,-49.3327 78.1774,-44.3213 84.3046,-52.9505 "/>
+</symbol>
+<symbol id="Fm0-469-0" viewBox="72.0538 -56.895 12.2472 6.40297">
+ <polygon class="fil0" points="78.1774,-56.895 72.0538,-54.1117 78.1774,-50.4921 84.301,-54.1117 "/>
+</symbol>
+<symbol id="Fm1-471-0" viewBox="72.0538 -64.2723 6.12361 13.7802">
+ <polygon class="fil0" points="72.0538,-54.1117 78.1774,-50.4921 78.1774,-56.8951 78.1774,-64.2723 "/>
+</symbol>
+<symbol id="Fm2-473-0" viewBox="78.1774 -64.2723 6.12361 13.7802">
+ <polygon class="fil0" points="78.1774,-64.2723 78.1774,-56.8951 78.1774,-50.4921 84.301,-54.1117 "/>
+</symbol>
+<symbol id="Fm3-475-0" viewBox="72.0538 -52.9505 6.12361 8.62921">
+ <polygon class="fil0" points="72.0538,-52.9505 78.1774,-44.3213 78.1774,-49.3328 "/>
+</symbol>
+ <g id="__x0023_Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_78942008">
+   <path id="_78944240" class="fil1" d="M3.9745 0c2.19507,0 3.9745,1.77943 3.9745,3.9745 0,2.19507 -1.77943,3.9745 -3.9745,3.9745 -2.19507,0 -3.9745,-1.77943 -3.9745,-3.9745 0,-2.19507 1.77943,-3.9745 3.9745,-3.9745z"/>
+   <g>
+    <polygon id="_78944504" class="fil2" points="6.68975,3.20064 3.97455,3.20064 3.97455,3.8163 6.20567,3.8163 "/>
+    <polygon id="_78944696" class="fil2" points="5.94851,4.19781 3.97455,4.19781 3.97455,4.81347 5.46444,4.81347 "/>
+    <polygon id="_78944888" class="fil3" points="3.96403,1.55889 1.91186,6.07371 2.79585,6.07371 3.97455,3.20064 5.15325,6.07371 6.03728,6.07371 3.98506,1.55889 3.96474,1.66517 "/>
+    <polygon id="_78945080" class="fil2" points="1.25935,3.20064 3.97455,3.20064 4.09388,3.81635 1.74343,3.81635 "/>
+    <polygon id="_78945272" class="fil2" points="2.00058,4.19781 3.97455,4.19781 4.30602,4.81343 2.48471,4.81343 "/>
+   </g>
+  </g>
+ </g>
+</svg>

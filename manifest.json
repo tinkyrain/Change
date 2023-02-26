@@ -1,0 +1,22 @@
+{
+    "short_name": "Alfa",
+    "name": "AlfaChange",
+    "description": "Alfa",
+    "icons": [
+        {
+            "src": "/192.png",
+            "type": "image/png",
+            "sizes": "192x192"
+        },
+        {
+            "src": "/512.png",
+            "type": "image/png",
+            "sizes": "512x512"
+        }
+    ],
+    "start_url": "/?source=pwa",
+    "background_color": "#17CF87",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#17CF87"
+}

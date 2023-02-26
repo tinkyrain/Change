@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <base href="">
+    <meta charset="utf-8">
+
+    <title>AlfaChange</title>
+    <meta name="description" content="ОБМЕН ЭЛЕКТРОННЫХ ВАЛЮТ">
+    <meta name="keywords" content="Bitcoin, Ethereum, Crypto, Exchanger, Change">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/QsUU0aF8Ht4LZNeBVBeT.css">
+
+    <link href="css/nice-select2.css" rel="stylesheet">
+
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+
+
+</head>
+
+<body>
+    <div class="modal-wrapper text-modal"  style="z-index: 999999;">
+        <div class="modal-content">
+            <h4 id="modal-text"></h4>
+            <button class="btn btn-primary" style="min-width: 100px;" onclick="closeModal()">Ок</button>
+        </div>
+    </div>
+    
+    <script>
+        function openModal(html, btnText) {
+            document.querySelector('.modal-wrapper.text-modal h4').innerHTML = html;
+    
+            if (btnText) {
+                document.querySelector('.modal-wrapper.text-modal button').innerHTML = btnText;
+            }
+    
+            document.querySelector('.modal-wrapper.text-modal').style.display = 'flex';
+        }
+    
+        function closeModal() {
+            document.querySelector('.modal-wrapper.text-modal').classList.add("_close");
+    
+            setTimeout(function () {
+                document.querySelector('.modal-wrapper.text-modal').style.display = 'none';
+                document.querySelector('.modal-wrapper.text-modal').classList.remove("_close");
+            }, 200);
+        }
+    </script>
+    
+    <div class="modal-wrapper security-modal">
+        <div class="modal-content">
+            <h4 id="modal-text">Введите код подтверждения:</h4>
+            <div style="display: flex; margin-top: 20px;">
+                <div class="form-field">
+                    <input type="text" class="form-control securityCode" placeholder="Код">
+                </div>
+                <button class="btn btn-primary securityCodeGet" style="max-width: 100%; margin-left: 20px;">Получить код</button>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 30px;">
+                <button class="btn btn-primary" style="min-width: 180px;" onclick="closeSecurityModal()">Закрыть</button>
+                <button class="btn btn-primary securityConfirm" style="min-width: 200px; margin-left: 20px;" onclick="closeSecurityModal()">Подтвердить</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function openSecurityModal(actionId) {
+            document.querySelector('.modal-wrapper.security-modal').style.display = 'flex';
+            document.querySelector('.modal-wrapper.security-modal .securityCodeGet').setAttribute('data-action', actionId);
+        }
+    
+        function closeSecurityModal() {
+            document.querySelector('.modal-wrapper.security-modal').classList.add("_close");
+    
+            setTimeout(function () {
+                document.querySelector('.modal-wrapper.security-modal').style.display = 'none';
+                document.querySelector('.modal-wrapper.security-modal').classList.remove("_close");
+            }, 200);
+        }
+    </script>
+    <header class="header position-sticky">
+        <div class="container">
+            <div class="header__container">
+                <button aria-controls="navbar" aria-expanded="false"
+                    class="header__burger d-flex justify-content-center align-items-center d-lg-none"
+                    data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+                    <svg class="burger" fill="none" height="30" viewbox="0 0 30 30" width="30"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#3F71F1" height="3" rx="1.5" width="20" x="5" y="6" />
+                        <rect fill="#3F71F1" height="3" rx="1.5" width="20" x="5" y="13" />
+                        <rect fill="#3F71F1" height="3" rx="1.5" width="20" x="5" y="20" /></svg>
+                    <svg class="close d-none" fill="none" height="30" viewbox="0 0 30 30" width="30"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#3F71F1" height="3" rx="1.5" transform="rotate(-45 7.01 21.01)" width="20" x="7.01"
+                            y="21.01" />
+                        <rect fill="#3F71F1" height="3" rx="1.5" transform="rotate(45 9.132 6.868)" width="20" x="9.132"
+                            y="6.868" /></svg>
+                </button>
+                <a class="header__logo" href="index.html">
+                    <img src="logo.svg" alt="">
+                </a>
+                <nav class="header__menu header__menu-desktop d-none d-lg-block ml-lg-10 h-100">
+                    <ul class="d-flex m-0 p-0 h-100">
+    
+                        <li class="d-flex align-items-center justify-content-center">
+                            <a class="pt-2 pb-2" href="index.html">Обмен валют</a>
+                        </li>
+    
+    
+                        <li class="d-flex align-items-center justify-content-center">
+                            <a class="pt-2 pb-2" href="rules.html">Правила сервиса</a>
+                        </li>
+    
+                        <li class="d-flex align-items-center justify-content-center">
+                            <a class="active pt-2 pb-2" href="reviews.html">Отзывы</a>
+                        </li>
+    
+                        <li class="d-flex align-items-center justify-content-center">
+                            <a class="pt-2 pb-2" href="contacts.html">Контакты</a>
+                        </li>
+    
+                    </ul>
+                </nav>
+                <div class="header__login d-none d-lg-flex d-xl-flex ml-auto">
+                    <a href="register.html" class="btn btn-outline-primary d-none d-xl-flex w-xl-130px mr-5">Регистрация</a>
+                    <a href="login.html" class="btn btn-primary w-80px">Войти</a>
+                </div>
+                <div class="site-header__dropdown dropdown">
+                    <div aria-labelledby="dropdownMenuButton" class="language-box dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 43px, 0px);">
+                        <a class="dropdown-item language-switch-item active" data-code="ru">
+                        Русский 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="en">
+                        English 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="zh">
+                        中文 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="ar">
+                        عرب 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="et">
+                        Eesti 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="de">
+                        Deutsch 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="ko">
+                        한국어 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="bg">
+                        Български 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="no">
+                        Norsk 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="pt">
+                        Portuguesa 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="lv">
+                        latviešu 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="sl">
+                        slovenščina 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="ro">
+                        Română 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="es">
+                        Español 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="it">
+                        Italiana 
+                        </a>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="header__menu header__menu-mobile position-fixed d-xl-none" id="navbarSupportedContent" data-parent="body">
+        <ul>
+    
+            <li>
+                <a href="index.html">Обмен валют</a>
+            </li>
+    
+    
+            <li>
+                <a href="rules.html">Правила сервиса</a>
+            </li>
+    
+            <li>
+                <a class="active" href="reviews.html">Отзывы</a>
+            </li>
+    
+            <li>
+                <a href="contacts.html">Контакты</a>
+            </li>
+            <hr class="mx-n3_75">
+            <li>
+                <a href="login.html">Войти</a>
+            </li>
+            <li>
+                <a href="register.html">Зарегистрироваться</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <nav class="header__menu header__menu-mobile header__menu-mobile-account position-fixed d-xl-none" id="account"
+        data-parent="body">
+        <ul class="text-right">
+            <li>
+                <a href="login.html">Войти</a>
+            </li>
+            <li>
+                <a href="register.html">Регистрация</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+    <div class="main-loading" style="display: none;">
+        <div class="loader">Loading...</div>
+    </div>    <div class="pt-5 pb-10 pt-lg-12 pb-lg-12">
+        <div class="container">
+            <h1 class="text-uppercase mb-5 text-center mb-lg-12">отзывы</h1>
+
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Андрей</h4>
+                            <div class="w-25 text-right">
+                                2023-02-16 19:55:33
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Всё супер, мега быстрый перевод Монобанк в Эфир. Спасибо!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Виталий</h4>
+                            <div class="w-25 text-right">
+                                2023-02-16 10:49:56
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Хочу выразить благодарность сервису за быстрые ответы на мои вопросы и человечность по решению проблемной ситуации, которую мы успешно решили. Перевод зачислили, все супер. 5+++
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Иван</h4>
+                            <div class="w-25 text-right">
+                                2023-02-15 21:23:02
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Спасибо большое. Аж сердце в пятки чуть не ушло. Благодарю
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Vasily</h4>
+                            <div class="w-25 text-right">
+                                2023-02-12 11:58:05
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Обменник работает отлично. Совершал обмен с перфекта. Поддержка на высоте) Постоянно на связи и отвечают на все вопросы. Обработка перевода очень оперативная.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Gur0007</h4>
+                            <div class="w-25 text-right">
+                                2023-02-03 18:14:35
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все молненосно.супер. рекомендую.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Павел</h4>
+                            <div class="w-25 text-right">
+                                2023-02-02 08:52:45
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Всё ок быстро надёжно)
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Andrey</h4>
+                            <div class="w-25 text-right">
+                                2023-01-31 01:29:20
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Второй раз использую и всё молниеносно, без проблем!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Pomelloanderson</h4>
+                            <div class="w-25 text-right">
+                                2023-01-16 05:39:58
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Операторы лучшие просто)
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Николай</h4>
+                            <div class="w-25 text-right">
+                                2023-01-15 13:26:48
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Всё хорошо обмен произошёл быстрее чем я ожидал рекомендую данный сервис.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Igor</h4>
+                            <div class="w-25 text-right">
+                                2023-01-13 15:48:38
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все отлично быстрый обмен PM eur -&amp;amp;gt; тинькоф рубли
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Alibek</h4>
+                            <div class="w-25 text-right">
+                                2023-01-10 14:44:21
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Отличный сервис! Быстрый обмен!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Yevhen</h4>
+                            <div class="w-25 text-right">
+                                2023-01-07 18:25:03
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Мгновенно пришло, все ок.  Были проблемы, но как оказалось, проблема в куках, на моей стороне. Что то сервису обмена они не понравились. Так что если у кого проблема с постоянным отклонением платежа -
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Костя</h4>
+                            <div class="w-25 text-right">
+                                2022-12-16 08:01:21
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Быстрый и надежный обменник ! Спасибо , очень порадовали
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Vladdos</h4>
+                            <div class="w-25 text-right">
+                                2022-12-07 22:22:46
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Отличный сервис,быстрый обмен, благоадрю за сервис
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Алексей</h4>
+                            <div class="w-25 text-right">
+                                2022-12-07 19:23:30
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Качественный и доступный сервис! Всё просто, четко и быстро! Остался доволен курсом и тем, что деньги поступили быстро! Спасибо!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Matvey</h4>
+                            <div class="w-25 text-right">
+                                2022-12-07 00:07:53
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Приятный курс, остался доволен
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Misha</h4>
+                            <div class="w-25 text-right">
+                                2022-12-02 07:06:55
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Удобный сайт . Заявка была выполнена очень быстро , обращаюсь не первый раз , нисколько не пожалел . Рек!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75"></h4>
+                            <div class="w-25 text-right">
+                                2022-12-01 14:14:09
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Быстро удобно, полностью соответствует описанию. Рекомендую
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Davo</h4>
+                            <div class="w-25 text-right">
+                                2022-11-30 22:07:41
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Пользуюсь только этим обменником!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Карл</h4>
+                            <div class="w-25 text-right">
+                                2022-11-29 18:14:04
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Простой интерфейс, все понятно. Быстро обменяли , благодарю
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Лариса</h4>
+                            <div class="w-25 text-right">
+                                2022-11-28 15:44:51
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Привлекает обменник своими курсами, всё понятно даже для такой блондинки как я:)
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Авель</h4>
+                            <div class="w-25 text-right">
+                                2022-11-28 15:15:59
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все прошло замечательно. Уже не первый раз пользуюсь этим обменником и ни разу не было проблем. Спасибо, ребята, за приятный сервис!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Aziz</h4>
+                            <div class="w-25 text-right">
+                                2022-11-25 08:35:32
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Отличный обменник, вывели за 5 минут без каких либо проблем)
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">John</h4>
+                            <div class="w-25 text-right">
+                                2022-11-21 15:28:03
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Без вопросов четко, очень шустро и удобно
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Yan</h4>
+                            <div class="w-25 text-right">
+                                2022-11-20 13:15:35
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Курс хороший, очень приятный. Деньги у меня уже через 5 минут
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Иван</h4>
+                            <div class="w-25 text-right">
+                                2022-11-06 01:23:33
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            В регламент укладываются, отправка была произведена за ~10 минут, хороший курс обмена, порадовал обменник.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Alex</h4>
+                            <div class="w-25 text-right">
+                                2022-11-02 19:45:10
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все четко, работают на уровне спасибо за обмен
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Пётр</h4>
+                            <div class="w-25 text-right">
+                                2022-10-02 13:12:33
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Выбрал этот сервис и правильно сделал, качество на уровне
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Дема</h4>
+                            <div class="w-25 text-right">
+                                2022-09-28 13:21:39
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Всё отлично деньги пришли.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Володимир</h4>
+                            <div class="w-25 text-right">
+                                2022-09-21 10:31:56
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Сервис супер!!! Спасибо)
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Володимир</h4>
+                            <div class="w-25 text-right">
+                                2022-09-11 18:28:04
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Честный одзыв!я долго выбирал и я рекомендую етот обменный пунк,проверено лично!я люблю честно ето важно я Вова) В мире много обменных пунктов и людей,а особенно когда касается денег тут важно хочется
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Петька</h4>
+                            <div class="w-25 text-right">
+                                2022-09-07 00:58:51
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все отлично, деньги на месте, курс хороший, порадовали
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Анастасия</h4>
+                            <div class="w-25 text-right">
+                                2022-08-18 10:11:38
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Рекомендую ребята!!!!Быстро отвечают на вопросы,никакй воды.Только по делу.Сервис на высшем уровне.Молодцы!!! За это ставлю 10 из 10.Перевод и зачисление в течении 3-5 минут.За это ставлю 10 из 10.Сто
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Lesha</h4>
+                            <div class="w-25 text-right">
+                                2022-08-07 00:19:10
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все норм, обмен произведен, я доволен
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Fill</h4>
+                            <div class="w-25 text-right">
+                                2022-08-03 00:12:24
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Очень все понравилось, быстро, я рад, спасибо)
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Aliaksei</h4>
+                            <div class="w-25 text-right">
+                                2022-07-25 13:08:17
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Здравствуйте. Делал заявку о покупке usdt, так как я забыл перевести на карту средства, а потом добавил сначала заявку отменили, а потом провели. Оказалось что средства сняли а не зачислили. Написал в
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">George</h4>
+                            <div class="w-25 text-right">
+                                2022-07-16 14:14:00
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Заявку обработали быстро, курсом доволен
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Валерий</h4>
+                            <div class="w-25 text-right">
+                                2022-07-07 17:50:29
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все четко, по времени пару минут, проблем не было
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Джони</h4>
+                            <div class="w-25 text-right">
+                                2022-07-05 13:53:04
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Банк украл кучу денег за входящий перевод, поддержка быстро среагировала и докинула денег. Всем спасибо :)
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75"></h4>
+                            <div class="w-25 text-right">
+                                2022-07-05 12:24:04
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Ускорили обмен по личной просьбе, спасибо за отличный сервис и тех. поддержку!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Alex</h4>
+                            <div class="w-25 text-right">
+                                2022-06-25 21:22:45
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Заявка исполнена. Карту добавили только после обращения в саппорт, но всё норм
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Peter</h4>
+                            <div class="w-25 text-right">
+                                2022-06-22 10:22:02
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Обмен без проблем, все интуитивно понятно
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Сеня</h4>
+                            <div class="w-25 text-right">
+                                2022-06-20 04:18:30
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Понятный и удобный сайт , без проблем создал заявку
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Талия</h4>
+                            <div class="w-25 text-right">
+                                2022-06-16 20:53:02
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Хороший обменник, вежливая тех поддержка. Обмен прошел быстро.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Юра</h4>
+                            <div class="w-25 text-right">
+                                2022-06-15 16:27:21
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все получилось после верификации.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Александр</h4>
+                            <div class="w-25 text-right">
+                                2022-06-11 15:13:10
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Оперативно и без проблем провели обмен. Обращусь ещё.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Эльдар</h4>
+                            <div class="w-25 text-right">
+                                2022-06-11 02:52:29
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все быстро и удобно
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Иван</h4>
+                            <div class="w-25 text-right">
+                                2022-06-10 14:47:41
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Обменник - просто космос !!!  Благодарю за высочайший уровень работы !!!!  Процветания здоровья Вам и всех благ!!!!!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Alex</h4>
+                            <div class="w-25 text-right">
+                                2022-06-08 23:35:23
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все хорошо, адрес кошелька вставил неправильный (трояном наверное заменился), ребята увидели проблему и попросили заменить адрес, топ!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Valera</h4>
+                            <div class="w-25 text-right">
+                                2022-06-08 05:30:41
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Супер, очень быстро. Пару минут и деньги у меня
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Дмитрий</h4>
+                            <div class="w-25 text-right">
+                                2022-05-25 22:28:54
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все хорошо, поменял без проблем
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Сергей</h4>
+                            <div class="w-25 text-right">
+                                2022-05-25 13:37:15
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Отличный сервис. Где не смог разобраться, помогла техподдержка в телеграмме. Верификация понадобилась, но быстро прошла. Зачислили тоже быстро!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Max</h4>
+                            <div class="w-25 text-right">
+                                2022-05-12 07:59:53
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            TERRA рухнула, так ещё и заявка удалилась (хотя я перевёл всё правильно и своевременно), написал менеджеру - говорит денег нет. Скинул им все данные (хэш транзакции). Опять говорит денег нет))))  Но в
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Илья</h4>
+                            <div class="w-25 text-right">
+                                2022-05-07 18:35:02
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            И в этот раз все быстро и успешно получилось.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Александр</h4>
+                            <div class="w-25 text-right">
+                                2022-05-07 01:57:09
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Нормально! Транзакция прошла за 15 минут, как и было обещано. Спасибо!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Валентин</h4>
+                            <div class="w-25 text-right">
+                                2022-05-06 18:38:11
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Спасибо. Обмен произошел молниеносно, проблем не возникло)
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Данил</h4>
+                            <div class="w-25 text-right">
+                                2022-05-06 03:06:38
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Очень удивлен качеством службы поддержки данного сервиса, могу уверенно советовать данный обменник. Помогли разобраться с ошибкой (по моей вине), несмотря на то, что могли в целом никак не помогать мн
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Алекс</h4>
+                            <div class="w-25 text-right">
+                                2022-05-05 01:29:15
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Сперва выдала ошибку по заявке и предложение обратиться в поддержку. Написал, прошло не более 1 минуты как заявка была уже обработана. Спасибо за оперативность. Рекомендую.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Сергей</h4>
+                            <div class="w-25 text-right">
+                                2022-04-15 18:52:47
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Быстрый обмен
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Илья</h4>
+                            <div class="w-25 text-right">
+                                2022-04-07 20:20:44
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Обмен состоялся успешно.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Иван</h4>
+                            <div class="w-25 text-right">
+                                2022-04-06 01:51:09
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Перевод на кошелек USDT занял около 20 мин. Первочно требуется верификация по документам. Все ок.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Гала</h4>
+                            <div class="w-25 text-right">
+                                2022-04-05 12:36:24
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Хороший сервис, все предельно понятно, а если где-то не понятно, тех поддержка отвечает быстро. Потрясающая скорость, благодарю.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Исаак Багдасарян</h4>
+                            <div class="w-25 text-right">
+                                2022-03-23 07:40:44
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Я думал, что оплошал ибо с блокчеина долго шли битки, думал по времени не успел,но прошло часа 2 с половиной и всё равно прошла транзакция. Очень хороший обменник. Спасибо что ты есть))
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Сергей</h4>
+                            <div class="w-25 text-right">
+                                2022-03-22 20:43:29
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Заявка прошла довольно быстро, получил средства по приятному курсу, рекомендую
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Оск</h4>
+                            <div class="w-25 text-right">
+                                2022-03-19 16:23:44
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Каждый раз здесь вывожу, вопросов к ним не возникает, все на уровне, качественно
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Max</h4>
+                            <div class="w-25 text-right">
+                                2022-03-19 08:06:40
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Лучшие!!!!! За обменом теперь только к ним
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Роман</h4>
+                            <div class="w-25 text-right">
+                                2022-03-18 23:08:51
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Я приятно удивлён, только создал заявку и минуты через 3 средства упали на карту. Респект вам.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Александр</h4>
+                            <div class="w-25 text-right">
+                                2022-03-17 14:58:10
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Спасибо вам за качественный, быстрый обмен.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Alex</h4>
+                            <div class="w-25 text-right">
+                                2022-03-17 09:51:19
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Хороший обменник всё быстро и чётко рекомендую уже несколько раз выводил всё хорошо
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Валера</h4>
+                            <div class="w-25 text-right">
+                                2022-03-16 01:16:20
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Хороший обменник ,сайт удобный , при обмене видно курс ,очень удобно . Обмен совершился за 3 минуты , очень доволен сервисом
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Григорий</h4>
+                            <div class="w-25 text-right">
+                                2022-03-07 13:40:05
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Оперативно через чат решили проблему с ошибкой банка Тинькофф (карточку только получил, видимо не активизировалось полностью), деньги отправили в банк Открытие. Спасибо СП за решение проблемы.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Артем</h4>
+                            <div class="w-25 text-right">
+                                2022-03-04 23:00:18
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Сайт немного не допилен, после нажатия кнопки оплатил заявка ушла в незаконченные и потребовалось предоставлять пруфы оплаты. возможно произошло по причине небольшой задержки из-за общения с безопасно
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Евгений</h4>
+                            <div class="w-25 text-right">
+                                2022-03-04 09:29:58
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Простой и быстрый обмен, буквально пара минут.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Eva</h4>
+                            <div class="w-25 text-right">
+                                2022-02-28 22:33:18
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Невероятно... зачисление через 5 минут после оплаты, да еще и самое выгодное предложение. Непременно еще заглянем!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Roman</h4>
+                            <div class="w-25 text-right">
+                                2022-02-28 20:45:13
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Первый раз попробовал. Менял битки на тинькоф. Все произошло удивительно быстро, без проблем и по хорошему курсу! Все отлично!!!Рекомендую!!!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Тимурик</h4>
+                            <div class="w-25 text-right">
+                                2022-02-26 18:44:48
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Красавчики! Супер быстро и без заморочек. Так держать!!! ?
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Ant</h4>
+                            <div class="w-25 text-right">
+                                2022-02-25 14:53:23
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Постоянно пользуюсь данным обменником. Минимум движений, и деньги на карте в максимально короткое время. Никаких лишних движений. Хороший курс обмена.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Anatoliy</h4>
+                            <div class="w-25 text-right">
+                                2022-02-20 12:24:30
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Пользуюсь обменнком впервые. Отлично сработали. Спасибо
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Alex</h4>
+                            <div class="w-25 text-right">
+                                2022-01-08 16:39:53
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все отлично! Быстрая оплата и транзакция! Отличный обменник!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Ilie</h4>
+                            <div class="w-25 text-right">
+                                2022-01-03 11:01:27
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Делал перевод первый раз в Молдову на Мастеркард: пришло почти мгновенно. Всё Супер!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Aleksandr</h4>
+                            <div class="w-25 text-right">
+                                2021-12-30 10:22:16
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Очень оперативный сервис. Большое спасибо.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Aleksandr</h4>
+                            <div class="w-25 text-right">
+                                2021-12-28 16:07:32
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все супер. Молодцы. Спасибо!!! Быстро и без проблем!!!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Aleksandr</h4>
+                            <div class="w-25 text-right">
+                                2021-12-28 09:13:50
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Все очень быстро и без проблем. Молодцы. Спасибо.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Igor</h4>
+                            <div class="w-25 text-right">
+                                2021-12-28 08:39:25
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Спасибо все очень быстро
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Виктор</h4>
+                            <div class="w-25 text-right">
+                                2021-12-26 11:54:17
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Спасибо. Ребята молодцы, однозначно буду пользоваться вашими услугами)
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Павел</h4>
+                            <div class="w-25 text-right">
+                                2021-12-25 07:45:06
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Обменник рабочий. Вывод произошел практически мгновенно. Рекомендую.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Наталья Сорокина</h4>
+                            <div class="w-25 text-right">
+                                2021-12-20 17:49:05
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            У меня получилась небольшое осложнение с моей стороны. Меняла XLM Stellar на BYN Visa. Мой банк не успел мне активировать карту, я только забрала карту с банка, а оказывается, активировать её банк мож
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Роман</h4>
+                            <div class="w-25 text-right">
+                                2021-11-28 12:57:16
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Отличный обменник. И консультанты молодцы. Процветания Вам.Рекомендую обмен проходит быстро
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Надежда</h4>
+                            <div class="w-25 text-right">
+                                2021-11-28 07:53:52
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Отличный обменник, пользуюсь не первый раз, быстро, чётко, всём советую???
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Владимир Устинович</h4>
+                            <div class="w-25 text-right">
+                                2021-11-27 13:11:14
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Отличная работа! Всё очень быстро! Благодарю! Молодцы!!!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Aleksandr</h4>
+                            <div class="w-25 text-right">
+                                2021-11-27 11:41:23
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Молодцы. Спасибо. Все очень быстро. Так держать.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Александр</h4>
+                            <div class="w-25 text-right">
+                                2021-11-26 16:33:11
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Всё в порядке. Перевод с Payeer на карту BYN пришёл в течении 10 мин. Спасибо.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Татьяна</h4>
+                            <div class="w-25 text-right">
+                                2021-11-23 00:32:17
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            35 минут и сделка закрыта! Благодарю!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Никита Соколов</h4>
+                            <div class="w-25 text-right">
+                                2021-11-19 23:04:35
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Дошли менее чем за 5 минут
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Роман</h4>
+                            <div class="w-25 text-right">
+                                2021-11-19 19:54:21
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Очень быстро, рекомендую
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Сергей</h4>
+                            <div class="w-25 text-right">
+                                2021-11-16 23:06:53
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Обменяли биткоины на бел.рубли за час. Спасибо.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Tober Sftg</h4>
+                            <div class="w-25 text-right">
+                                2021-11-13 11:33:51
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Спасибо за быстрый обмен!
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Aleksandr</h4>
+                            <div class="w-25 text-right">
+                                2021-11-07 11:22:55
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Спасибо за услугу. Обмен прошел быстро. Все на сайте все понятно, просто и удобно.
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Azagtot</h4>
+                            <div class="w-25 text-right">
+                                2021-11-06 21:45:48
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Безупречно работают, безумно быстро, почти в реальном времени исполняют заявки и всегда на связи. Спасибо ребята за работу
+                        </p>
+                    </div>
+                    <div class="faq__item mb-5">
+                        <div class="faq__item-header d-flex justify-content-between">
+                            <h4 class="mb-0 w-75">Александр</h4>
+                            <div class="w-25 text-right">
+                                2021-11-04 20:05:22
+                            </div>
+                        </div>
+                        <p class="mb-0">
+                            Оперативно, молодцы!
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 offset-lg-1">
+                    <h4 class="mb-3_75 mb-lg-8">Оставьте свой отзыв</h4>
+                    <div class="form-group mb-3">
+                        <label class="font-weight-normal" for="reviewsName">Ваше имя</label>
+                        <div class="form-field">
+                            <input type="text" class="form-control font-size-lg-14" placeholder="Введите ваше имя"
+                                id="reviewsName">
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label class="font-weight-normal" for="reviewsMsg">Отзыв</label>
+                        <div class="form-field">
+                            <textarea placeholder="Ваш отзыв о нашем сервисе" type="text"
+                                class="form-control font-size-lg-14" rows="5"
+                                style="resize: none; max-height: 50px; line-height: 39px;" id="reviewsMsg"></textarea>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary w-100 mt-10 w-lg-200px mt-lg-7_5 h-lg-50px font-size-lg-16"
+                        id="reviewsSend">Оставить отзыв</button>
+
+                    <div style="margin-top: 40px;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 order-lg-2 col-lg-2">
+                    <h6 class="text-grey-2 mb-3">Навигация</h6>
+                    <ul class="mb-6_5">
+    
+                        <li>
+                            <a href="index.html">Главная</a>
+                        </li>
+    
+                        <li>
+                            <a href="index.html">Обмен валют</a>
+                        </li>
+    
+    
+                        <li>
+                            <a href="reviews.html">Отзывы</a>
+                        </li>
+    
+                        <li>
+                            <a href="contacts.html">Контакты</a>
+                        </li>
+    
+                    </ul>
+                </div>
+                <div class="col-6 order-lg-3 col-lg-3">
+                    <h6 class="text-grey-2 mb-3">Полезная
+                        <br class="d-lg-none">
+                        информация</h6>
+                    <ul class="mb-6_5">
+    
+                        <li>
+                            <a href="rules.html">Правила сервиса</a>
+                        </li>
+    
+                        <li>
+                            <a href="aml.html">AML/CFT</a>
+                        </li>
+    
+                        <li>
+                            <a href="privacy.html">Политика конфиденциальности</a>
+                        </li>
+    
+                    </ul>
+                </div>
+                <div class="col-6 order-lg-4 col-lg-2">
+                    <h6 class="text-grey-2 mb-3">Личный кабинет</h6>
+                    <ul>
+    
+                        <li>
+                            <a href="login.html">Мой профиль</a>
+                        </li>
+    
+                        <li>
+                            <a href="login.html">Последние обмены</a>
+                        </li>
+    
+                        <li>
+                            <a href="login.html">Рефералы</a>
+                        </li>
+    
+                        <li>
+                            <a href="login.html">Настройки</a>
+                        </li>
+    
+                    </ul>
+                </div>
+                <div class="col-12 text-center text-lg-left mt-3 mt-lg-0 col-lg-3 order-lg-1">
+                    <a href="index.html">
+                        <img src="logo.svg" alt="">
+                    </a>
+                    <p class="text-grey-3 footer__copyright mb-0 mt-1" style="margin-top: 15px !important;">Copyright
+                        AlfaChange © 2023
+                    </p>
+                    <a href="https://kurs.expert/ru/obmennik/alfachange-com" title="Обмен Биткоин, Киви, Яндекс, AdvCash"
+                        target="_blank" rel="noopener" disabled="disabled" aria-disabled="true"
+                        style="display:block; margin-top: 20px;">
+                        <img src="https://kurs.expert/i/logo.png" width="31" height="31" border="0">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        var language = "ru";
+        var linkPrefix = "";
+        var paymentSystems = [{"psid":115,"name":"Augur","valute":"REP","network":null,"reserve":500,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-augur.png","seo":"augur","bci":"REP","bid":-1},{"psid":12,"name":"Bitcoin","valute":"BTC","network":null,"reserve":1063,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bitcoin.png","seo":"bitcoin","bci":"BTC","bid":93},{"psid":42,"name":"Ethereum","valute":"ETH","network":null,"reserve":12383,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ethereum.png","seo":"ethereum","bci":"ETH","bid":139},{"psid":171,"name":"USDT ERC20","valute":"USDT","network":"ERC20","reserve":25311428,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"tether-erc-20","bci":"USDTERC20","bid":36},{"psid":169,"name":"USDT TRC20","valute":"USDT","network":"TRC20","reserve":25311428,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"tether-trc-20","bci":"USDTTRC20","bid":10},{"psid":426,"name":"USDT POLYGON","valute":"USDT","network":"POLYGON","reserve":25311428,"with_codes":0,"group":"crypto","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"usdt-polygon","bci":"USDTPOLYGON","bid":-1},{"psid":83,"name":"Waves","valute":"WAVES","network":null,"reserve":0,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-waves.png","seo":"waves","bci":"WAVES","bid":133},{"psid":319,"name":"USDT BEP20","valute":"USDT","network":"BEP20","reserve":25311428,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"usdt-bep20","bci":"USDTBEP20","bid":208},{"psid":91,"name":"OmiseGO","valute":"OMG","network":null,"reserve":46,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-omg.png","seo":"omg","bci":"OMG","bid":48},{"psid":434,"name":"USDT SOL","valute":"USDT","network":"SOL","reserve":25311428,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"usdt-sol","bci":"USDTSOL","bid":180},{"psid":117,"name":"USD Coin ERC20","valute":"USDC","network":null,"reserve":16335655,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-usdc.png","seo":"usdcoin","bci":"USDCERC20","bid":23},{"psid":407,"name":"USDC TRC20","valute":"USDC","network":"TRC20","reserve":16335655,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-usdc.png","seo":"usdc-trc20","bci":"USDCTRC20","bid":110},{"psid":100,"name":"ICON","valute":"ICX","network":null,"reserve":10000,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-icon.png","seo":"icon","bci":"ICON","bid":104},{"psid":334,"name":"USDC BEP20","valute":"USDC","network":"BEP20","reserve":16335655,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-usdc.png","seo":"usdc-bep20","bci":"USDCBEP20","bid":235},{"psid":427,"name":"USDC POLYGON","valute":"USDC","network":"POLYGON","reserve":16335655,"with_codes":0,"group":"crypto","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-usdc.png","seo":"usdc-polygon","bci":"USDCPOLYGON","bid":-1},{"psid":468,"name":"USDC SOL","valute":"USDC","network":"SOL","reserve":16335655,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-usdc.png","seo":"usdc-sol","bci":"USDCSOL","bid":228},{"psid":322,"name":"BUSD BEP20","valute":"BUSD","network":"BEP20","reserve":14810965,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-bnb.png","seo":"busd-bep20","bci":"BUSDBEP20","bid":-1},{"psid":213,"name":"Binance USD (BUSD)","valute":"BUSD","network":null,"reserve":14810965,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bnb.png","seo":"busd","bci":"BUSD","bid":206},{"psid":116,"name":"TrueUSD ERC20","valute":"TUSD","network":null,"reserve":14810965,"with_codes":0,"group":"crypto","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tusd.png","seo":"trueusd","bci":"TUSD","bid":24},{"psid":259,"name":"Dai (DAI)","valute":"DAI","network":null,"reserve":14810965,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-dai.png","seo":"dai","bci":"DAI","bid":203},{"psid":168,"name":"Pax Dollar (USDP)","valute":"USDP","network":null,"reserve":14810965,"with_codes":0,"group":"crypto","payin":1,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-pax.png","seo":"pax","bci":"USDP","bid":189},{"psid":72,"name":"Monero","valute":"XMR","network":null,"reserve":165796,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-monero.png","seo":"monero","bci":"XMR","bid":149},{"psid":367,"name":"Solana","valute":"SOL","network":null,"reserve":1714,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-solana.png?v=2","seo":"sol","bci":"SOL","bid":82},{"psid":13,"name":"Litecoin","valute":"LTC","network":null,"reserve":162563,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-litecoin.png","seo":"litecoin","bci":"LTC","bid":99},{"psid":272,"name":"Dash","valute":"DASH","network":null,"reserve":43205,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-dash2.png","seo":"dash","bci":"DASH","bid":140},{"psid":84,"name":"Tron","valute":"TRX","network":null,"reserve":29108861,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tron.png","seo":"tron","bci":"TRX","bid":185},{"psid":80,"name":"Stellar","valute":"XLM","network":null,"reserve":33550689,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-stellar.png","seo":"stellar","bci":"XLM","bid":182},{"psid":82,"name":"Cardano (ADA)","valute":"ADA","network":null,"reserve":8016903,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-cardano.png","seo":"cardano","bci":"ADA","bid":181},{"psid":70,"name":"Ripple","valute":"XRP","network":null,"reserve":5254675,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ripple.png","seo":"ripple","bci":"XRP","bid":161},{"psid":55,"name":"ZCash","valute":"ZEC","network":null,"reserve":64467,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-zcash.png","seo":"zcash","bci":"ZEC","bid":162},{"psid":62,"name":"Bitcoin Cash","valute":"BCH","network":null,"reserve":22379,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/svg/bitcoin-cash.svg","seo":"bitcoin-cash","bci":"BCH","bid":172},{"psid":323,"name":"BNB BEP20","valute":"BNB","network":"BEP20","reserve":16381,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bnb.png","seo":"bnb-bep20","bci":"BNBBEP20","bid":19},{"psid":90,"name":"Binance Coin (BNB)","valute":"BNB","network":null,"reserve":16381,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bnb.png","seo":"bnb","bci":"BNBBEP2","bid":16},{"psid":75,"name":"Ethereum classic (ETC)","valute":"ETC","network":null,"reserve":139770,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ethereum_classic.png","seo":"ethereum-classic","bci":"ETC","bid":160},{"psid":273,"name":"Dogecoin","valute":"DOGE","network":null,"reserve":36482041,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-dogecoin.png","seo":"doge","bci":"DOGE","bid":115},{"psid":417,"name":"Toncoin","valute":"TONCOIN","network":null,"reserve":4151148,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-toncoin2.png","seo":"toncoin","bci":"TON","bid":209},{"psid":223,"name":"Cosmos (ATOM)","valute":"ATOM","network":null,"reserve":225322,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-atom.png","seo":"atom","bci":"ATOM","bid":198},{"psid":308,"name":"Polkadot","valute":"DOT","network":null,"reserve":442154,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-polkadot.png","seo":"polkadot","bci":"DOT","bid":201},{"psid":63,"name":"Bitcoin Gold","valute":"BTG","network":null,"reserve":114601,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/svg/bitcoin_gold.svg","seo":"bitcoin-gold","bci":"BTG","bid":184},{"psid":400,"name":"Avalanche (AVAX)","valute":"AVAX","network":null,"reserve":158972,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-avax.png","seo":"avax","bci":"AVAX","bid":217},{"psid":128,"name":"BitTorrent ","valute":"BTT","network":null,"reserve":4170588235294,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bittorrent.png","seo":"bittorrent","bci":"BTT","bid":27},{"psid":201,"name":"Tezos","valute":"XTZ","network":null,"reserve":2369036,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-tezos.png?v=2","seo":"tezos","bci":"XTZ","bid":175},{"psid":182,"name":"Chainlink (LINK)","valute":"LINK","network":null,"reserve":394460,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-link.png","seo":"link","bci":"LINK","bid":197},{"psid":99,"name":"IOTA","valute":"MIOTA","network":null,"reserve":11735641,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-iota.png","seo":"iota","bci":"IOTA","bid":179},{"psid":247,"name":"Ravencoin","valute":"RVN","network":null,"reserve":91159198,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-rvn.png","seo":"rvn","bci":"RVN","bid":205},{"psid":246,"name":"Basic Attention Token (BAT)","valute":"BAT","network":null,"reserve":9839853,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-bat.png","seo":"bat","bci":"BAT","bid":61},{"psid":464,"name":"Decentraland (MANA)","valute":"MANA","network":"","reserve":4455273,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-decentraland.png","seo":"decentraland","bci":"MANA","bid":227},{"psid":220,"name":"Sepa EUR","valute":"EUR","network":null,"reserve":1537491,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-bank.png","seo":"sepa-eur","bci":"SEPAEUR","bid":171},{"psid":380,"name":"MATIC","valute":"MATIC","network":"POLYGON","reserve":2305480,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-matic2.png","seo":"matic-polygon","bci":"MATIC","bid":138},{"psid":474,"name":"NEAR Protocol","valute":"NEAR","network":"","reserve":1273317,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-near2.png","seo":"near-protocol","bci":"NEAR","bid":76},{"psid":395,"name":"CRO cronos","valute":"CRO","network":"CRONOS","reserve":37099680,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-cro.png","seo":"cro-cronos","bci":"CRO","bid":144},{"psid":284,"name":"yearn finance (YFI)","valute":"YFI","network":null,"reserve":329,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-yfi.png","seo":"yfi","bci":"YFI","bid":220},{"psid":79,"name":"NEM","valute":"XEM","network":null,"reserve":71563724,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-nem.png","seo":"nem","bci":"XEM","bid":173},{"psid":276,"name":"Algorand","valute":"ALGO","network":null,"reserve":11591543,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-algorand.png","seo":"algorand","bci":"ALGO","bid":216},{"psid":283,"name":"WBTC ERC20","valute":"WBTC","network":"ERC20","reserve":127,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-wbtc.png","seo":"wbtc-erc20","bci":"WBTC","bid":73},{"psid":293,"name":"Uniswap (UNI)","valute":"UNI","network":null,"reserve":445922,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-uni.png","seo":"uni","bci":"UNI","bid":202},{"psid":274,"name":"VeChain","valute":"VET","network":null,"reserve":0,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-vet.png","seo":"vechain","bci":"VET","bid":8},{"psid":379,"name":"SHIBA INU (SHIB)","valute":"SHIB","network":null,"reserve":500086224,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-shib.png","seo":"shib","bci":"SHIBERC20","bid":210},{"psid":397,"name":"Alipay","valute":"CNY","network":null,"reserve":0,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/flags/cny.png","seo":"alipay-cny","bci":"ALPCNY","bid":165},{"psid":85,"name":"EOS (EOS)","valute":"EOS","network":null,"reserve":0,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-eos.png","seo":"eos","bci":"EOS","bid":178},{"psid":1,"name":"Perfect Money USD","valute":"USD","network":null,"reserve":1504684,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-perfect_money.png","seo":"perfectmoney-usd","bci":"PMUSD","bid":40},{"psid":49,"name":"Perfect Money EUR","valute":"EUR","network":null,"reserve":1173775,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-perfect_money.png","seo":"perfectmoney-eur","bci":"PMEUR","bid":41},{"psid":120,"name":"Perfect Money BTC","valute":"BTC","network":null,"reserve":212,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-perfect_money.png","seo":"perfectmoney-btc","bci":"PMBTC","bid":128},{"psid":22,"name":"Payeer USD","valute":"USD","network":null,"reserve":1256378,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-payeer.png","seo":"payeer","bci":"PRUSD","bid":108},{"psid":50,"name":"Payeer EUR","valute":"EUR","network":null,"reserve":510817,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-payeer.png","seo":"payeer-eur","bci":"PREUR","bid":122},{"psid":41,"name":"Payeer RUB","valute":"RUR","network":null,"reserve":17307827,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-payeer.png","seo":"payeer-rub","bci":"PRRUB","bid":117},{"psid":28,"name":"Advcash USD","valute":"USD","network":null,"reserve":4509293,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-advcash.png","seo":"advcash","bci":"ADVCUSD","bid":88},{"psid":48,"name":"Advcash EUR","valute":"EUR","network":null,"reserve":1023106,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-advcash.png","seo":"advcash-eur","bci":"ADVCEUR","bid":120},{"psid":57,"name":"Advcash RUR","valute":"RUR","network":null,"reserve":15030064,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-advcash.png","seo":"advcash-rur","bci":"ADVCRUB","bid":121},{"psid":325,"name":"Piastrix USD","valute":"USD","network":null,"reserve":2544778,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-piastrix.png","seo":"piastrix-usd","bci":"PIASTRIXUSD","bid":-1},{"psid":326,"name":"Piastrix EUR","valute":"EUR","network":null,"reserve":1447887,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-piastrix.png","seo":"piastrix-eur","bci":"PIASTRIXEUR","bid":-1},{"psid":149,"name":"PayPal USD","valute":"USD","network":null,"reserve":1225487,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-paypal.png","seo":"paypal-usd","bci":"PPUSD","bid":45},{"psid":150,"name":"PayPal EUR","valute":"EUR","network":null,"reserve":1080778,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-paypal.png","seo":"paypal-eur","bci":"PPEUR","bid":80},{"psid":218,"name":"PayPal GBP","valute":"GBP","network":null,"reserve":1441441,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-paypal.png","seo":"paypal-gbp","bci":"PPGBP","bid":164},{"psid":4,"name":"WMZ","valute":"USD","network":null,"reserve":1785877,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-wm.png","seo":"wmz","bci":"WMZ","bid":1},{"psid":275,"name":"Maker (MKR)","valute":"MKR","network":null,"reserve":0,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-maker.png","seo":"maker","bci":"MKR","bid":213},{"psid":15,"name":"YooMoney (Я.Деньги)","valute":"RUR","network":null,"reserve":18242450,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-yandex.png","seo":"yandex-money","bci":"YAMRUB","bid":6},{"psid":37,"name":"Мобильная связь РФ","valute":"RUR","network":null,"reserve":662691,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-mobile_russia.png","seo":"russia-mobile","bci":"MWRUB","bid":49},{"psid":222,"name":"Contact USD","valute":"USD","network":null,"reserve":3000000,"with_codes":1,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-contact.png","seo":"contact-usd","bci":"CNTUSD","bid":101},{"psid":9,"name":"QIWI RUB","valute":"RUR","network":null,"reserve":512300,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-qiwi.png","seo":"qiwi","bci":"QWRUB","bid":63},{"psid":26,"name":"Visa/MasterCard RUB","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-rur","bci":"CARDRUB","bid":59},{"psid":86,"name":"Visa/MasterCard KZT","valute":"KZT","network":null,"reserve":201729929,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-kzt","bci":"CARDKZT","bid":111},{"psid":88,"name":"Visa/MasterCard BYN","valute":"BYN","network":null,"reserve":1399007,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-byn","bci":"CARDBYN","bid":54},{"psid":87,"name":"Visa/MasterCard UAH","valute":"UAH","network":null,"reserve":6279476,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-uah","bci":"CARDUAH","bid":60},{"psid":263,"name":"Visa/MasterCard GBP","valute":"GBP","network":null,"reserve":1369348,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-gbp","bci":"CARDGBP","bid":-1},{"psid":27,"name":"Visa/MasterCard USD","valute":"USD","network":null,"reserve":1464770,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-usd","bci":"CARDUSD","bid":58},{"psid":125,"name":"Visa/MasterCard EUR","valute":"EUR","network":null,"reserve":1023106,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-eur","bci":"CARDEUR","bid":65},{"psid":127,"name":"Visa/MasterCard CNY","valute":"CNY","network":null,"reserve":5241110,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-cny","bci":"CARDCNY","bid":30},{"psid":227,"name":"Visa/MasterCard AMD","valute":"AMD","network":null,"reserve":12677710,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-amd","bci":"CARDAMD","bid":5},{"psid":251,"name":"Visa/MasterCard MDL","valute":"MDL","network":null,"reserve":1666667,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/flags/mdl.png","seo":"visamc-mdl","bci":"CARDMDL","bid":194},{"psid":441,"name":"Visa/MasterCard KGS","valute":"KGS","network":null,"reserve":4547896,"with_codes":0,"group":"bank","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps/flags/kgs.png","seo":"visamc-kgs","bci":"CARDKGS","bid":25},{"psid":310,"name":"Visa/MasterCard SEK","valute":"SEK","network":null,"reserve":1380064,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-sek","bci":"CARDSEK","bid":155},{"psid":311,"name":"Visa/MasterCard BGN","valute":"BGN","network":null,"reserve":1497032,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-bgn","bci":"CARDBGN","bid":-1},{"psid":516,"name":"Visa/MasterCard AZN","valute":"AZN","network":null,"reserve":1225687,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-azn","bci":"CARDAZN","bid":237},{"psid":517,"name":"Visa/MasterCard TJS","valute":"TJS","network":null,"reserve":1364644,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-tjs","bci":"CARDTJS","bid":240},{"psid":446,"name":"Visa/MasterCard CZK","valute":"CZK","network":null,"reserve":1514478,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-czk","bci":"CARDCZK","bid":-1},{"psid":309,"name":"Visa/MasterCard PLN","valute":"PLN","network":null,"reserve":1881438,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-pln","bci":"CARDPLN","bid":38},{"psid":447,"name":"Visa/MasterCard NOK","valute":"NOK","network":null,"reserve":1634440,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-nok","bci":"CARDNOK","bid":-1},{"psid":448,"name":"Visa/MasterCard HUF","valute":"HUF","network":null,"reserve":27046990,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-huf","bci":"CARDHUF","bid":-1},{"psid":503,"name":"Visa/MasterCard UZS","valute":"UZS","network":null,"reserve":64467780,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-uzs","bci":"CARDUZS","bid":239},{"psid":537,"name":"Visa/MasterCard GEL","valute":"GEL","network":null,"reserve":1397770,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-gel","bci":"CARDGEL","bid":-1},{"psid":538,"name":"Visa/MasterCard CAD","valute":"CAD","network":null,"reserve":1372215,"with_codes":0,"group":"bank","payin":1,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-cad","bci":"CARDCAD","bid":-1},{"psid":264,"name":"Visa/MasterCard TRY","valute":"TRY","network":null,"reserve":2078643,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-try","bci":"CARDTRY","bid":83},{"psid":109,"name":"Банковский счет RUB","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bank.png","seo":"wire-rub","bci":"WIRERUB","bid":71},{"psid":8,"name":"Зелёный банк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-greenbank.png","seo":"green-bank","bci":"SBERRUB","bid":42},{"psid":7,"name":"Альфа-банк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-alphabank.png","seo":"alfabank","bci":"ACRUB","bid":52},{"psid":31,"name":"МТС банк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-mtsbank.png","seo":"mtsbank","bci":"MTSBRUB","bid":191},{"psid":18,"name":"Тинькофф","valute":"RUR","network":null,"reserve":96135164,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tcsbank.png","seo":"tinkoff","bci":"TCSBRUB","bid":105},{"psid":108,"name":"МИР","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-mir.png","seo":"mir","bci":"MIRCRUB","bid":17},{"psid":3,"name":"ВТБ","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-vtb_2.png","seo":"vtb","bci":"TBRUB","bid":51},{"psid":25,"name":"Открытие банк","valute":"RUR","network":null,"reserve":24423250,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-openbank.png","seo":"openbank","bci":"OPNBRUB","bid":176},{"psid":24,"name":"Промсвязьбанк","valute":"RUR","network":null,"reserve":26973884,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-promsvyazbank.png","seo":"promsvyazbank","bci":"PSBRUB","bid":53},{"psid":2,"name":"Русский стандарт","valute":"RUR","network":null,"reserve":22619081,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ruskiystandart.png","seo":"russtandart","bci":"RUSSTRUB","bid":64},{"psid":17,"name":"Газпромбанк","valute":"RUR","network":null,"reserve":25546468,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-gazprombank.png","seo":"gazprombank","bci":"GPBRUB","bid":95},{"psid":36,"name":"Россельхозбанк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-rsnb.png","seo":"rshb","bci":"RSHBRUB","bid":34},{"psid":40,"name":"Почта банк","valute":"RUR","network":null,"reserve":24852197,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-pochtabank.png","seo":"pochtabank","bci":"POSTBRUB","bid":170},{"psid":23,"name":"Ак Барс банк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-akbarsbank.png","seo":"akbarsbank","bci":"AKBRSBRUB","bid":-1},{"psid":11,"name":"Авангард банк","valute":"RUR","network":null,"reserve":345055355,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-avangard_bank.png","seo":"avangard","bci":"AVBRUB","bid":79},{"psid":34,"name":"Банк Хоум Кредит","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-homecreditbank.png","seo":"homecreditbank","bci":"HCBRUB","bid":215},{"psid":32,"name":"Бинбанк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-binbank.png","seo":"binbank","bci":"BINBANKRUB","bid":-1},{"psid":58,"name":"Райффайзенбанк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-raiffeisen.png","seo":"raiffeisen","bci":"RFBRUB","bid":157},{"psid":39,"name":"Кукуруза","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-kykyryza.png","seo":"kykyryza","bci":"KUKRUB","bid":57},{"psid":30,"name":"Татфондбанк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/ps-tfb.png","seo":"tfb","bci":"TFBRUB","bid":-1},{"psid":93,"name":"Unionpay","valute":"CNY","network":null,"reserve":1913349,"with_codes":0,"group":"ps","payin":1,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-unionpay.png","seo":"unionpay","bci":"UPCNY","bid":100},{"psid":415,"name":"РНКБ","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-rnkb.png","seo":"rnkb","bci":"RNKBRUB","bid":132},{"psid":29,"name":"Росбанк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-rosbank.png","seo":"rosbank","bci":"ROSBRUB","bid":195},{"psid":35,"name":"Банк Югра","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/ps-jugrabank.png","seo":"jugrabank","bci":"JGRBRUB","bid":-1},{"psid":105,"name":"Kaspi Bank","valute":"KZT","network":null,"reserve":76390554,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-kaspi.png","seo":"kaspi-bank","bci":"KSPBKZT","bid":66},{"psid":110,"name":"Зелёный банк KZT","valute":"KZT","network":null,"reserve":51656635,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-greenbank.png","seo":"green-bank-kzt","bci":"SBERKZT","bid":114},{"psid":153,"name":"ForteBank","valute":"KZT","network":null,"reserve":201729929,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-fortebank.png","seo":"fortebank","bci":"FRTBKZT","bid":75},{"psid":106,"name":"HalykBank","valute":"KZT","network":null,"reserve":81145940,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-halykbank.png?v=2","seo":"halykbank","bci":"HLKBKZT","bid":90},{"psid":401,"name":"Jusan Bank","valute":"KZT","network":null,"reserve":28774557,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-jysan_bank.png","seo":"jusan-bank","bci":"JSNBKZT","bid":207},{"psid":111,"name":"Любой банк KZT","valute":"KZT","network":null,"reserve":69066407,"with_codes":0,"group":"bank","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bank.png","seo":"wire-kzt","bci":"WIRE_KZT","bid":113},{"psid":101,"name":"Приват 24 UAH","valute":"UAH","network":null,"reserve":4547377,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-privat24.png","seo":"privat24-uah","bci":"P24UAH","bid":56},{"psid":157,"name":"Монобанк","valute":"UAH","network":null,"reserve":2058709,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-monobank.png","seo":"monobank","bci":"MONOBUAH","bid":84},{"psid":155,"name":"УкрСиббанк","valute":"UAH","network":null,"reserve":1185834,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ukrsibbank.png","seo":"ukrsibbank","bci":"USBUAH","bid":22},{"psid":92,"name":"Lisk","valute":"LSK","network":null,"reserve":0,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-lsk.png","seo":"lsk","bci":"LSK","bid":-1},{"psid":154,"name":"Ощадбанк","valute":"UAH","network":null,"reserve":3000000,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-oschadbank.png","seo":"oschadbank","bci":"OSDBUAH","bid":68},{"psid":97,"name":"0x","valute":"ZRX","network":null,"reserve":0,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-zrx.png","seo":"zrx","bci":"ZRX","bid":168},{"psid":156,"name":"ПУМБ","valute":"UAH","network":null,"reserve":1000000,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-pumb.png","seo":"pumb-uah","bci":"PMBBUAH","bid":118},{"psid":104,"name":"Райффайзен UAH","valute":"UAH","network":null,"reserve":1537569,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-raiffeisen.png","seo":"raiffeisen-uah","bci":"RFBUAH","bid":158},{"psid":219,"name":"Альфа-Банк UAH","valute":"UAH","network":null,"reserve":1176362,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-alphabank.png","seo":"alfabank-auh","bci":"ACUAH","bid":37},{"psid":113,"name":"Любой банк UAH","valute":"UAH","network":null,"reserve":5035116,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-bank.png","seo":"wire-uah","bci":"WIRE_UAH","bid":102},{"psid":241,"name":"UZCARD","valute":"UZS","network":null,"reserve":1403174888,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-uzcard.png","seo":"uzcard","bci":"UZCUZS","bid":9},{"psid":387,"name":"Карта HUMO","valute":"UZS","network":null,"reserve":178711799,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-humo.png","seo":"card-humo","bci":"HUMOUZS","bid":199},{"psid":130,"name":"Любой банк AZN","valute":"AZN","network":null,"reserve":1000000,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/flags/azn.png","seo":"wire-azn","bci":"WIRE_AZN","bid":-1},{"psid":132,"name":"Любой банк TJS","valute":"TJS","network":null,"reserve":10000,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/flags/tjs.png","seo":"wire-tjs","bci":"WIRE_TJS","bid":-1},{"psid":134,"name":"Любой банк GEL","valute":"GEL","network":null,"reserve":0,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/flags/gel.png","seo":"wire-gel","bci":"WIRE_GEL","bid":-1},{"psid":135,"name":"Любой банк KGS","valute":"KGS","network":null,"reserve":10441928,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/flags/kgs.png","seo":"wire-kgs","bci":"WIRE_KGS","bid":-1},{"psid":136,"name":"Любой банк MDL","valute":"MDL","network":null,"reserve":11605,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/flags/mdl.png","seo":"wire-mdl","bci":"WIRE_MDL","bid":-1},{"psid":163,"name":"Любой банк AMD","valute":"AMD","network":null,"reserve":11000000,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/flags/amd.png","seo":"wire-amd","bci":"WIRE_AMD","bid":5},{"psid":244,"name":"Любой банк UZS","valute":"UZS","network":null,"reserve":0,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-uzcard.png","seo":"wire-uzs","bci":"WIRE_UZS","bid":-1},{"psid":65,"name":"Exmo BTC","valute":"BTC","network":null,"reserve":1063,"with_codes":1,"group":"check","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-exmo.png","seo":"exmo-btc","bci":"EXMBTC","bid":186},{"psid":144,"name":"Exmo USDT","valute":"USDT","network":null,"reserve":102325,"with_codes":1,"group":"check","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-exmo.png","seo":"exmo-usdt","bci":"EXMUSDT","bid":-1},{"psid":59,"name":"Exmo USD","valute":"USD","network":null,"reserve":20171,"with_codes":1,"group":"check","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-exmo.png","seo":"exmo-usd","bci":"EXMUSD","bid":129},{"psid":60,"name":"Exmo RUR","valute":"RUR","network":null,"reserve":531325,"with_codes":1,"group":"check","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-exmo.png","seo":"exmo-rur","bci":"EXMRUB","bid":130},{"psid":16,"name":"e-Voucher","valute":"USD","network":null,"reserve":1504684,"with_codes":1,"group":"check","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-perfect_money.png","seo":"e-voucher","bci":"PMVUSD","bid":156},{"psid":61,"name":"Exmo EUR","valute":"EUR","network":null,"reserve":10000,"with_codes":1,"group":"check","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-exmo.png","seo":"exmo-eur","bci":"EXMEUR","bid":131},{"psid":47,"name":"Livecoin USD","valute":"USD","network":null,"reserve":20000,"with_codes":1,"group":"check","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-livecoin.png","seo":"livecoin","bci":"LVCNUSD","bid":-1},{"psid":214,"name":"Anypay","valute":"RUR","network":null,"reserve":1000000,"with_codes":0,"group":"ps","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-anypay.png","seo":"anypay","bci":"ANYPAY","bid":-1},{"psid":368,"name":"WalletQiwi (wq)","valute":"RUR","network":null,"reserve":1000,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"wq","bci":"WQ","bid":-1},{"psid":221,"name":"Contact RUR","valute":"RUR","network":null,"reserve":1000000,"with_codes":1,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-contact.png","seo":"contact-rur","bci":"CNTRUB","bid":106},{"psid":231,"name":"AnyMoney UAH","valute":"UAH","network":null,"reserve":10000,"with_codes":0,"group":"ps","payin":0,"payout":0,"img":"/res/exchangebox/uploads/svg/anymoney.svg","seo":"anymoney-uah","bci":"ANYMONEYUAH","bid":-1},{"psid":224,"name":"AnyMoney","valute":"RUR","network":null,"reserve":9826071,"with_codes":0,"group":"ps","payin":0,"payout":0,"img":"/res/exchangebox/uploads/svg/anymoney.svg","seo":"anymoney","bci":"ANYMONEY","bid":-1},{"psid":230,"name":"Fourbill UAH","valute":"UAH","network":null,"reserve":100000,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-4billv2.png","seo":"fourbill-uah","bci":"FOURBILLUAH","bid":-1},{"psid":151,"name":"Кредитные карты","valute":"RUR","network":null,"reserve":500000,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-bank.png","seo":"credit-card-rur","bci":"CREDITCARD","bid":-1},{"psid":177,"name":"Qiwi от 100 руб.","valute":"RUR","network":null,"reserve":1000000,"with_codes":0,"group":"ps","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-qiwi.png","seo":"qiwi100","bci":"QIWI100","bid":-1},{"psid":183,"name":"Покупка с карты","valute":"RUR","network":null,"reserve":1000000,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-4billv2.png","seo":"4bill-rub","bci":"4BILLRUB","bid":-1},{"psid":228,"name":"Easytransfer","valute":"UAH","network":null,"reserve":1000000,"with_codes":0,"group":"ps","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/ps-none.png","seo":"easytransfer","bci":"EASYTRANSFER","bid":-1},{"psid":71,"name":"Neo","valute":"NEO","network":null,"reserve":84545,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-neo.png","seo":"neo","bci":"NEO","bid":177},{"psid":119,"name":"Bitcoin Cash SV","valute":"BCHSV","network":null,"reserve":71366,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-bitcoin_abc.png","seo":"bitcoin-sv","bci":"BSV","bid":137},{"psid":225,"name":"Tele2","valute":"RUR","network":null,"reserve":2453084,"with_codes":0,"group":"ps","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-tele2.png","seo":"tele2","bci":"TELE2","bid":-1},{"psid":126,"name":"QIWI UAH","valute":"UAH","network":null,"reserve":110000,"with_codes":0,"group":"ps","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-qiwi.png","seo":"qiwi-uah","bci":"QWUAH","bid":-1},{"psid":73,"name":"USDT Omni","valute":"USDT","network":"OMNI","reserve":102325,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"tether","bci":"USDTOMNI","bid":163},{"psid":114,"name":"Чек Capitalist","valute":"USD","network":null,"reserve":10000,"with_codes":1,"group":"check","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-capitalist.png","seo":"capitalist-code-usd","bci":"CPTSCUSD","bid":-1},{"psid":302,"name":"Payoneer USD","valute":"USD","network":null,"reserve":87123,"with_codes":0,"group":"ps","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-payoneer.png","seo":"payoneer-usd","bci":"PNRUSD","bid":103},{"psid":408,"name":"Terra (LUNA)","valute":"LUNA","network":null,"reserve":17586,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-luna2.png","seo":"terra-luna","bci":"LUNA","bid":2},{"psid":278,"name":"Терминал KZT","valute":"KZT","network":null,"reserve":1000000,"with_codes":0,"group":"ps","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/flags/kzt.png","seo":"terminal-kzt","bci":"CASHKZT","bid":94},{"psid":384,"name":"СБП","valute":"RUR","network":null,"reserve":0,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-sbp2.png","seo":"sbp-rub","bci":"SBPRUB","bid":21},{"psid":76,"name":"QIWI KZT","valute":"KZT","network":null,"reserve":62657305,"with_codes":0,"group":"ps","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-qiwi.png","seo":"qiwi-kzt","bci":"QWKZT","bid":127},{"psid":107,"name":"Казкоммерцбанк","valute":"KZT","network":null,"reserve":45000000,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-kazkombank.png","seo":"kazkombank","bci":"KKBKZT","bid":-1},{"psid":190,"name":"Счет ИП или ООО","valute":"RUR","network":null,"reserve":11000000,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-bank.png","seo":"stlmrub","bci":"STLMRUB","bid":159},{"psid":312,"name":"Любой банк СНГ","valute":"RUR","network":null,"reserve":0,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"card-sng-rur","bci":"CARDSNGRUR","bid":-1},{"psid":452,"name":"TerraUSD (UST)","valute":"UST","network":"","reserve":1159981,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-terrausd.png","seo":"terrausd","bci":"UST","bid":174},{"psid":313,"name":"Банковские реквизиты","valute":"RUR","network":null,"reserve":0,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"bank-details-rur","bci":"BANKDETAILSRUR","bid":-1},{"psid":505,"name":"Ethereum PoW (ETHW)","valute":"ETHW","network":"","reserve":0,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-ethw.png","seo":"ethereum-pow","bci":"ETHW","bid":-1},{"psid":534,"name":"Wise USD","valute":"USD","network":null,"reserve":0,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/svg/wise.svg","seo":"wise-usd","bci":"WISEUSD","bid":-1},{"psid":535,"name":"Wise EUR","valute":"EUR","network":null,"reserve":0,"with_codes":0,"group":"bank","payin":0,"payout":0,"img":"/res/exchangebox/uploads/svg/wise.svg","seo":"wise-eur","bci":"WISEEUR","bid":-1},{"psid":300,"name":"Armada","valute":"RUR","network":null,"reserve":0,"with_codes":0,"group":"ps","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/ps-mpspay.png","seo":"armada","bci":"ARMADA","bid":-1},{"psid":413,"name":"Ontology (ONT)","valute":"ONT","network":null,"reserve":0,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/ps-ont.png","seo":"ontology","bci":"ONT","bid":135},{"psid":414,"name":"Qtum (QTUM)","valute":"QTUM","network":null,"reserve":0,"with_codes":0,"group":"crypto","payin":0,"payout":0,"img":"/res/exchangebox/uploads/ps/ps-qtum.png","seo":"qtum","bci":"QTUM","bid":26}];
+        var paymentSystemsIn = [{"psid":12,"name":"Bitcoin","valute":"BTC","network":null,"reserve":1063,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bitcoin.png","seo":"bitcoin","bci":"BTC","bid":93},{"psid":42,"name":"Ethereum","valute":"ETH","network":null,"reserve":12383,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ethereum.png","seo":"ethereum","bci":"ETH","bid":139},{"psid":171,"name":"USDT ERC20","valute":"USDT","network":"ERC20","reserve":25311428,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"tether-erc-20","bci":"USDTERC20","bid":36},{"psid":169,"name":"USDT TRC20","valute":"USDT","network":"TRC20","reserve":25311428,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"tether-trc-20","bci":"USDTTRC20","bid":10},{"psid":319,"name":"USDT BEP20","valute":"USDT","network":"BEP20","reserve":25311428,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"usdt-bep20","bci":"USDTBEP20","bid":208},{"psid":434,"name":"USDT SOL","valute":"USDT","network":"SOL","reserve":25311428,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"usdt-sol","bci":"USDTSOL","bid":180},{"psid":117,"name":"USD Coin ERC20","valute":"USDC","network":null,"reserve":16335655,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-usdc.png","seo":"usdcoin","bci":"USDCERC20","bid":23},{"psid":334,"name":"USDC BEP20","valute":"USDC","network":"BEP20","reserve":16335655,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-usdc.png","seo":"usdc-bep20","bci":"USDCBEP20","bid":235},{"psid":468,"name":"USDC SOL","valute":"USDC","network":"SOL","reserve":16335655,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-usdc.png","seo":"usdc-sol","bci":"USDCSOL","bid":228},{"psid":213,"name":"Binance USD (BUSD)","valute":"BUSD","network":null,"reserve":14810965,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bnb.png","seo":"busd","bci":"BUSD","bid":206},{"psid":259,"name":"Dai (DAI)","valute":"DAI","network":null,"reserve":14810965,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-dai.png","seo":"dai","bci":"DAI","bid":203},{"psid":168,"name":"Pax Dollar (USDP)","valute":"USDP","network":null,"reserve":14810965,"with_codes":0,"group":"crypto","payin":1,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-pax.png","seo":"pax","bci":"USDP","bid":189},{"psid":72,"name":"Monero","valute":"XMR","network":null,"reserve":165796,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-monero.png","seo":"monero","bci":"XMR","bid":149},{"psid":367,"name":"Solana","valute":"SOL","network":null,"reserve":1714,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-solana.png?v=2","seo":"sol","bci":"SOL","bid":82},{"psid":13,"name":"Litecoin","valute":"LTC","network":null,"reserve":162563,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-litecoin.png","seo":"litecoin","bci":"LTC","bid":99},{"psid":272,"name":"Dash","valute":"DASH","network":null,"reserve":43205,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-dash2.png","seo":"dash","bci":"DASH","bid":140},{"psid":84,"name":"Tron","valute":"TRX","network":null,"reserve":29108861,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tron.png","seo":"tron","bci":"TRX","bid":185},{"psid":80,"name":"Stellar","valute":"XLM","network":null,"reserve":33550689,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-stellar.png","seo":"stellar","bci":"XLM","bid":182},{"psid":82,"name":"Cardano (ADA)","valute":"ADA","network":null,"reserve":8016903,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-cardano.png","seo":"cardano","bci":"ADA","bid":181},{"psid":70,"name":"Ripple","valute":"XRP","network":null,"reserve":5254675,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ripple.png","seo":"ripple","bci":"XRP","bid":161},{"psid":55,"name":"ZCash","valute":"ZEC","network":null,"reserve":64467,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-zcash.png","seo":"zcash","bci":"ZEC","bid":162},{"psid":62,"name":"Bitcoin Cash","valute":"BCH","network":null,"reserve":22379,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/svg/bitcoin-cash.svg","seo":"bitcoin-cash","bci":"BCH","bid":172},{"psid":323,"name":"BNB BEP20","valute":"BNB","network":"BEP20","reserve":16381,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bnb.png","seo":"bnb-bep20","bci":"BNBBEP20","bid":19},{"psid":90,"name":"Binance Coin (BNB)","valute":"BNB","network":null,"reserve":16381,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bnb.png","seo":"bnb","bci":"BNBBEP2","bid":16},{"psid":75,"name":"Ethereum classic (ETC)","valute":"ETC","network":null,"reserve":139770,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ethereum_classic.png","seo":"ethereum-classic","bci":"ETC","bid":160},{"psid":273,"name":"Dogecoin","valute":"DOGE","network":null,"reserve":36482041,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-dogecoin.png","seo":"doge","bci":"DOGE","bid":115},{"psid":417,"name":"Toncoin","valute":"TONCOIN","network":null,"reserve":4151148,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-toncoin2.png","seo":"toncoin","bci":"TON","bid":209},{"psid":223,"name":"Cosmos (ATOM)","valute":"ATOM","network":null,"reserve":225322,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-atom.png","seo":"atom","bci":"ATOM","bid":198},{"psid":308,"name":"Polkadot","valute":"DOT","network":null,"reserve":442154,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-polkadot.png","seo":"polkadot","bci":"DOT","bid":201},{"psid":63,"name":"Bitcoin Gold","valute":"BTG","network":null,"reserve":114601,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/svg/bitcoin_gold.svg","seo":"bitcoin-gold","bci":"BTG","bid":184},{"psid":400,"name":"Avalanche (AVAX)","valute":"AVAX","network":null,"reserve":158972,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-avax.png","seo":"avax","bci":"AVAX","bid":217},{"psid":128,"name":"BitTorrent ","valute":"BTT","network":null,"reserve":4170588235294,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bittorrent.png","seo":"bittorrent","bci":"BTT","bid":27},{"psid":201,"name":"Tezos","valute":"XTZ","network":null,"reserve":2369036,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-tezos.png?v=2","seo":"tezos","bci":"XTZ","bid":175},{"psid":182,"name":"Chainlink (LINK)","valute":"LINK","network":null,"reserve":394460,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-link.png","seo":"link","bci":"LINK","bid":197},{"psid":247,"name":"Ravencoin","valute":"RVN","network":null,"reserve":91159198,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-rvn.png","seo":"rvn","bci":"RVN","bid":205},{"psid":246,"name":"Basic Attention Token (BAT)","valute":"BAT","network":null,"reserve":9839853,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-bat.png","seo":"bat","bci":"BAT","bid":61},{"psid":464,"name":"Decentraland (MANA)","valute":"MANA","network":"","reserve":4455273,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-decentraland.png","seo":"decentraland","bci":"MANA","bid":227},{"psid":380,"name":"MATIC","valute":"MATIC","network":"POLYGON","reserve":2305480,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-matic2.png","seo":"matic-polygon","bci":"MATIC","bid":138},{"psid":474,"name":"NEAR Protocol","valute":"NEAR","network":"","reserve":1273317,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-near2.png","seo":"near-protocol","bci":"NEAR","bid":76},{"psid":395,"name":"CRO cronos","valute":"CRO","network":"CRONOS","reserve":37099680,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-cro.png","seo":"cro-cronos","bci":"CRO","bid":144},{"psid":284,"name":"yearn finance (YFI)","valute":"YFI","network":null,"reserve":329,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-yfi.png","seo":"yfi","bci":"YFI","bid":220},{"psid":79,"name":"NEM","valute":"XEM","network":null,"reserve":71563724,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-nem.png","seo":"nem","bci":"XEM","bid":173},{"psid":276,"name":"Algorand","valute":"ALGO","network":null,"reserve":11591543,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-algorand.png","seo":"algorand","bci":"ALGO","bid":216},{"psid":283,"name":"WBTC ERC20","valute":"WBTC","network":"ERC20","reserve":127,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-wbtc.png","seo":"wbtc-erc20","bci":"WBTC","bid":73},{"psid":293,"name":"Uniswap (UNI)","valute":"UNI","network":null,"reserve":445922,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-uni.png","seo":"uni","bci":"UNI","bid":202},{"psid":379,"name":"SHIBA INU (SHIB)","valute":"SHIB","network":null,"reserve":500086224,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-shib.png","seo":"shib","bci":"SHIBERC20","bid":210},{"psid":1,"name":"Perfect Money USD","valute":"USD","network":null,"reserve":1504684,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-perfect_money.png","seo":"perfectmoney-usd","bci":"PMUSD","bid":40},{"psid":49,"name":"Perfect Money EUR","valute":"EUR","network":null,"reserve":1173775,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-perfect_money.png","seo":"perfectmoney-eur","bci":"PMEUR","bid":41},{"psid":120,"name":"Perfect Money BTC","valute":"BTC","network":null,"reserve":212,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-perfect_money.png","seo":"perfectmoney-btc","bci":"PMBTC","bid":128},{"psid":22,"name":"Payeer USD","valute":"USD","network":null,"reserve":1256378,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-payeer.png","seo":"payeer","bci":"PRUSD","bid":108},{"psid":50,"name":"Payeer EUR","valute":"EUR","network":null,"reserve":510817,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-payeer.png","seo":"payeer-eur","bci":"PREUR","bid":122},{"psid":41,"name":"Payeer RUB","valute":"RUR","network":null,"reserve":17307827,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-payeer.png","seo":"payeer-rub","bci":"PRRUB","bid":117},{"psid":28,"name":"Advcash USD","valute":"USD","network":null,"reserve":4509293,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-advcash.png","seo":"advcash","bci":"ADVCUSD","bid":88},{"psid":48,"name":"Advcash EUR","valute":"EUR","network":null,"reserve":1023106,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-advcash.png","seo":"advcash-eur","bci":"ADVCEUR","bid":120},{"psid":57,"name":"Advcash RUR","valute":"RUR","network":null,"reserve":15030064,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-advcash.png","seo":"advcash-rur","bci":"ADVCRUB","bid":121},{"psid":9,"name":"QIWI RUB","valute":"RUR","network":null,"reserve":512300,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-qiwi.png","seo":"qiwi","bci":"QWRUB","bid":63},{"psid":26,"name":"Visa/MasterCard RUB","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-rur","bci":"CARDRUB","bid":59},{"psid":86,"name":"Visa/MasterCard KZT","valute":"KZT","network":null,"reserve":201729929,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-kzt","bci":"CARDKZT","bid":111},{"psid":88,"name":"Visa/MasterCard BYN","valute":"BYN","network":null,"reserve":1399007,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-byn","bci":"CARDBYN","bid":54},{"psid":87,"name":"Visa/MasterCard UAH","valute":"UAH","network":null,"reserve":6279476,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-uah","bci":"CARDUAH","bid":60},{"psid":263,"name":"Visa/MasterCard GBP","valute":"GBP","network":null,"reserve":1369348,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-gbp","bci":"CARDGBP","bid":-1},{"psid":27,"name":"Visa/MasterCard USD","valute":"USD","network":null,"reserve":1464770,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-usd","bci":"CARDUSD","bid":58},{"psid":125,"name":"Visa/MasterCard EUR","valute":"EUR","network":null,"reserve":1023106,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-eur","bci":"CARDEUR","bid":65},{"psid":127,"name":"Visa/MasterCard CNY","valute":"CNY","network":null,"reserve":5241110,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-cny","bci":"CARDCNY","bid":30},{"psid":227,"name":"Visa/MasterCard AMD","valute":"AMD","network":null,"reserve":12677710,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-amd","bci":"CARDAMD","bid":5},{"psid":251,"name":"Visa/MasterCard MDL","valute":"MDL","network":null,"reserve":1666667,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/flags/mdl.png","seo":"visamc-mdl","bci":"CARDMDL","bid":194},{"psid":310,"name":"Visa/MasterCard SEK","valute":"SEK","network":null,"reserve":1380064,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-sek","bci":"CARDSEK","bid":155},{"psid":311,"name":"Visa/MasterCard BGN","valute":"BGN","network":null,"reserve":1497032,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-bgn","bci":"CARDBGN","bid":-1},{"psid":516,"name":"Visa/MasterCard AZN","valute":"AZN","network":null,"reserve":1225687,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-azn","bci":"CARDAZN","bid":237},{"psid":517,"name":"Visa/MasterCard TJS","valute":"TJS","network":null,"reserve":1364644,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-tjs","bci":"CARDTJS","bid":240},{"psid":446,"name":"Visa/MasterCard CZK","valute":"CZK","network":null,"reserve":1514478,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-czk","bci":"CARDCZK","bid":-1},{"psid":309,"name":"Visa/MasterCard PLN","valute":"PLN","network":null,"reserve":1881438,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-pln","bci":"CARDPLN","bid":38},{"psid":447,"name":"Visa/MasterCard NOK","valute":"NOK","network":null,"reserve":1634440,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-nok","bci":"CARDNOK","bid":-1},{"psid":448,"name":"Visa/MasterCard HUF","valute":"HUF","network":null,"reserve":27046990,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-huf","bci":"CARDHUF","bid":-1},{"psid":503,"name":"Visa/MasterCard UZS","valute":"UZS","network":null,"reserve":64467780,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-uzs","bci":"CARDUZS","bid":239},{"psid":538,"name":"Visa/MasterCard CAD","valute":"CAD","network":null,"reserve":1372215,"with_codes":0,"group":"bank","payin":1,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-cad","bci":"CARDCAD","bid":-1},{"psid":264,"name":"Visa/MasterCard TRY","valute":"TRY","network":null,"reserve":2078643,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-try","bci":"CARDTRY","bid":83},{"psid":8,"name":"Зелёный банк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-greenbank.png","seo":"green-bank","bci":"SBERRUB","bid":42},{"psid":7,"name":"Альфа-банк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-alphabank.png","seo":"alfabank","bci":"ACRUB","bid":52},{"psid":31,"name":"МТС банк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-mtsbank.png","seo":"mtsbank","bci":"MTSBRUB","bid":191},{"psid":18,"name":"Тинькофф","valute":"RUR","network":null,"reserve":96135164,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tcsbank.png","seo":"tinkoff","bci":"TCSBRUB","bid":105},{"psid":108,"name":"МИР","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-mir.png","seo":"mir","bci":"MIRCRUB","bid":17},{"psid":3,"name":"ВТБ","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-vtb_2.png","seo":"vtb","bci":"TBRUB","bid":51},{"psid":25,"name":"Открытие банк","valute":"RUR","network":null,"reserve":24423250,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-openbank.png","seo":"openbank","bci":"OPNBRUB","bid":176},{"psid":24,"name":"Промсвязьбанк","valute":"RUR","network":null,"reserve":26973884,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-promsvyazbank.png","seo":"promsvyazbank","bci":"PSBRUB","bid":53},{"psid":2,"name":"Русский стандарт","valute":"RUR","network":null,"reserve":22619081,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ruskiystandart.png","seo":"russtandart","bci":"RUSSTRUB","bid":64},{"psid":17,"name":"Газпромбанк","valute":"RUR","network":null,"reserve":25546468,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-gazprombank.png","seo":"gazprombank","bci":"GPBRUB","bid":95},{"psid":36,"name":"Россельхозбанк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-rsnb.png","seo":"rshb","bci":"RSHBRUB","bid":34},{"psid":40,"name":"Почта банк","valute":"RUR","network":null,"reserve":24852197,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-pochtabank.png","seo":"pochtabank","bci":"POSTBRUB","bid":170},{"psid":23,"name":"Ак Барс банк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-akbarsbank.png","seo":"akbarsbank","bci":"AKBRSBRUB","bid":-1},{"psid":11,"name":"Авангард банк","valute":"RUR","network":null,"reserve":345055355,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-avangard_bank.png","seo":"avangard","bci":"AVBRUB","bid":79},{"psid":34,"name":"Банк Хоум Кредит","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-homecreditbank.png","seo":"homecreditbank","bci":"HCBRUB","bid":215},{"psid":58,"name":"Райффайзенбанк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-raiffeisen.png","seo":"raiffeisen","bci":"RFBRUB","bid":157},{"psid":39,"name":"Кукуруза","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-kykyryza.png","seo":"kykyryza","bci":"KUKRUB","bid":57},{"psid":93,"name":"Unionpay","valute":"CNY","network":null,"reserve":1913349,"with_codes":0,"group":"ps","payin":1,"payout":0,"img":"/res/exchangebox/uploads/ps88/ps-unionpay.png","seo":"unionpay","bci":"UPCNY","bid":100},{"psid":415,"name":"РНКБ","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-rnkb.png","seo":"rnkb","bci":"RNKBRUB","bid":132},{"psid":29,"name":"Росбанк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-rosbank.png","seo":"rosbank","bci":"ROSBRUB","bid":195},{"psid":105,"name":"Kaspi Bank","valute":"KZT","network":null,"reserve":76390554,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-kaspi.png","seo":"kaspi-bank","bci":"KSPBKZT","bid":66},{"psid":110,"name":"Зелёный банк KZT","valute":"KZT","network":null,"reserve":51656635,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-greenbank.png","seo":"green-bank-kzt","bci":"SBERKZT","bid":114},{"psid":153,"name":"ForteBank","valute":"KZT","network":null,"reserve":201729929,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-fortebank.png","seo":"fortebank","bci":"FRTBKZT","bid":75},{"psid":106,"name":"HalykBank","valute":"KZT","network":null,"reserve":81145940,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-halykbank.png?v=2","seo":"halykbank","bci":"HLKBKZT","bid":90},{"psid":401,"name":"Jusan Bank","valute":"KZT","network":null,"reserve":28774557,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-jysan_bank.png","seo":"jusan-bank","bci":"JSNBKZT","bid":207},{"psid":101,"name":"Приват 24 UAH","valute":"UAH","network":null,"reserve":4547377,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-privat24.png","seo":"privat24-uah","bci":"P24UAH","bid":56},{"psid":157,"name":"Монобанк","valute":"UAH","network":null,"reserve":2058709,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-monobank.png","seo":"monobank","bci":"MONOBUAH","bid":84},{"psid":155,"name":"УкрСиббанк","valute":"UAH","network":null,"reserve":1185834,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ukrsibbank.png","seo":"ukrsibbank","bci":"USBUAH","bid":22},{"psid":154,"name":"Ощадбанк","valute":"UAH","network":null,"reserve":3000000,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-oschadbank.png","seo":"oschadbank","bci":"OSDBUAH","bid":68},{"psid":156,"name":"ПУМБ","valute":"UAH","network":null,"reserve":1000000,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-pumb.png","seo":"pumb-uah","bci":"PMBBUAH","bid":118},{"psid":104,"name":"Райффайзен UAH","valute":"UAH","network":null,"reserve":1537569,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-raiffeisen.png","seo":"raiffeisen-uah","bci":"RFBUAH","bid":158},{"psid":219,"name":"Альфа-Банк UAH","valute":"UAH","network":null,"reserve":1176362,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-alphabank.png","seo":"alfabank-auh","bci":"ACUAH","bid":37},{"psid":241,"name":"UZCARD","valute":"UZS","network":null,"reserve":1403174888,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-uzcard.png","seo":"uzcard","bci":"UZCUZS","bid":9},{"psid":387,"name":"Карта HUMO","valute":"UZS","network":null,"reserve":178711799,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-humo.png","seo":"card-humo","bci":"HUMOUZS","bid":199}];
+        var paymentSystemsOut = [{"psid":12,"name":"Bitcoin","valute":"BTC","network":null,"reserve":1063,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bitcoin.png","seo":"bitcoin","bci":"BTC","bid":93},{"psid":42,"name":"Ethereum","valute":"ETH","network":null,"reserve":12383,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ethereum.png","seo":"ethereum","bci":"ETH","bid":139},{"psid":171,"name":"USDT ERC20","valute":"USDT","network":"ERC20","reserve":25311428,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"tether-erc-20","bci":"USDTERC20","bid":36},{"psid":169,"name":"USDT TRC20","valute":"USDT","network":"TRC20","reserve":25311428,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"tether-trc-20","bci":"USDTTRC20","bid":10},{"psid":426,"name":"USDT POLYGON","valute":"USDT","network":"POLYGON","reserve":25311428,"with_codes":0,"group":"crypto","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"usdt-polygon","bci":"USDTPOLYGON","bid":-1},{"psid":319,"name":"USDT BEP20","valute":"USDT","network":"BEP20","reserve":25311428,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"usdt-bep20","bci":"USDTBEP20","bid":208},{"psid":434,"name":"USDT SOL","valute":"USDT","network":"SOL","reserve":25311428,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tether.png","seo":"usdt-sol","bci":"USDTSOL","bid":180},{"psid":117,"name":"USD Coin ERC20","valute":"USDC","network":null,"reserve":16335655,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-usdc.png","seo":"usdcoin","bci":"USDCERC20","bid":23},{"psid":334,"name":"USDC BEP20","valute":"USDC","network":"BEP20","reserve":16335655,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-usdc.png","seo":"usdc-bep20","bci":"USDCBEP20","bid":235},{"psid":427,"name":"USDC POLYGON","valute":"USDC","network":"POLYGON","reserve":16335655,"with_codes":0,"group":"crypto","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-usdc.png","seo":"usdc-polygon","bci":"USDCPOLYGON","bid":-1},{"psid":468,"name":"USDC SOL","valute":"USDC","network":"SOL","reserve":16335655,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-usdc.png","seo":"usdc-sol","bci":"USDCSOL","bid":228},{"psid":213,"name":"Binance USD (BUSD)","valute":"BUSD","network":null,"reserve":14810965,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bnb.png","seo":"busd","bci":"BUSD","bid":206},{"psid":116,"name":"TrueUSD ERC20","valute":"TUSD","network":null,"reserve":14810965,"with_codes":0,"group":"crypto","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tusd.png","seo":"trueusd","bci":"TUSD","bid":24},{"psid":259,"name":"Dai (DAI)","valute":"DAI","network":null,"reserve":14810965,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-dai.png","seo":"dai","bci":"DAI","bid":203},{"psid":72,"name":"Monero","valute":"XMR","network":null,"reserve":165796,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-monero.png","seo":"monero","bci":"XMR","bid":149},{"psid":367,"name":"Solana","valute":"SOL","network":null,"reserve":1714,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-solana.png?v=2","seo":"sol","bci":"SOL","bid":82},{"psid":13,"name":"Litecoin","valute":"LTC","network":null,"reserve":162563,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-litecoin.png","seo":"litecoin","bci":"LTC","bid":99},{"psid":272,"name":"Dash","valute":"DASH","network":null,"reserve":43205,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-dash2.png","seo":"dash","bci":"DASH","bid":140},{"psid":84,"name":"Tron","valute":"TRX","network":null,"reserve":29108861,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tron.png","seo":"tron","bci":"TRX","bid":185},{"psid":80,"name":"Stellar","valute":"XLM","network":null,"reserve":33550689,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-stellar.png","seo":"stellar","bci":"XLM","bid":182},{"psid":82,"name":"Cardano (ADA)","valute":"ADA","network":null,"reserve":8016903,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-cardano.png","seo":"cardano","bci":"ADA","bid":181},{"psid":70,"name":"Ripple","valute":"XRP","network":null,"reserve":5254675,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ripple.png","seo":"ripple","bci":"XRP","bid":161},{"psid":55,"name":"ZCash","valute":"ZEC","network":null,"reserve":64467,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-zcash.png","seo":"zcash","bci":"ZEC","bid":162},{"psid":62,"name":"Bitcoin Cash","valute":"BCH","network":null,"reserve":22379,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/svg/bitcoin-cash.svg","seo":"bitcoin-cash","bci":"BCH","bid":172},{"psid":323,"name":"BNB BEP20","valute":"BNB","network":"BEP20","reserve":16381,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bnb.png","seo":"bnb-bep20","bci":"BNBBEP20","bid":19},{"psid":90,"name":"Binance Coin (BNB)","valute":"BNB","network":null,"reserve":16381,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bnb.png","seo":"bnb","bci":"BNBBEP2","bid":16},{"psid":75,"name":"Ethereum classic (ETC)","valute":"ETC","network":null,"reserve":139770,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ethereum_classic.png","seo":"ethereum-classic","bci":"ETC","bid":160},{"psid":273,"name":"Dogecoin","valute":"DOGE","network":null,"reserve":36482041,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-dogecoin.png","seo":"doge","bci":"DOGE","bid":115},{"psid":417,"name":"Toncoin","valute":"TONCOIN","network":null,"reserve":4151148,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-toncoin2.png","seo":"toncoin","bci":"TON","bid":209},{"psid":223,"name":"Cosmos (ATOM)","valute":"ATOM","network":null,"reserve":225322,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-atom.png","seo":"atom","bci":"ATOM","bid":198},{"psid":308,"name":"Polkadot","valute":"DOT","network":null,"reserve":442154,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-polkadot.png","seo":"polkadot","bci":"DOT","bid":201},{"psid":63,"name":"Bitcoin Gold","valute":"BTG","network":null,"reserve":114601,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/svg/bitcoin_gold.svg","seo":"bitcoin-gold","bci":"BTG","bid":184},{"psid":400,"name":"Avalanche (AVAX)","valute":"AVAX","network":null,"reserve":158972,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-avax.png","seo":"avax","bci":"AVAX","bid":217},{"psid":128,"name":"BitTorrent ","valute":"BTT","network":null,"reserve":4170588235294,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bittorrent.png","seo":"bittorrent","bci":"BTT","bid":27},{"psid":201,"name":"Tezos","valute":"XTZ","network":null,"reserve":2369036,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-tezos.png?v=2","seo":"tezos","bci":"XTZ","bid":175},{"psid":182,"name":"Chainlink (LINK)","valute":"LINK","network":null,"reserve":394460,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-link.png","seo":"link","bci":"LINK","bid":197},{"psid":247,"name":"Ravencoin","valute":"RVN","network":null,"reserve":91159198,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-rvn.png","seo":"rvn","bci":"RVN","bid":205},{"psid":246,"name":"Basic Attention Token (BAT)","valute":"BAT","network":null,"reserve":9839853,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-bat.png","seo":"bat","bci":"BAT","bid":61},{"psid":464,"name":"Decentraland (MANA)","valute":"MANA","network":"","reserve":4455273,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-decentraland.png","seo":"decentraland","bci":"MANA","bid":227},{"psid":380,"name":"MATIC","valute":"MATIC","network":"POLYGON","reserve":2305480,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-matic2.png","seo":"matic-polygon","bci":"MATIC","bid":138},{"psid":474,"name":"NEAR Protocol","valute":"NEAR","network":"","reserve":1273317,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-near2.png","seo":"near-protocol","bci":"NEAR","bid":76},{"psid":395,"name":"CRO cronos","valute":"CRO","network":"CRONOS","reserve":37099680,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-cro.png","seo":"cro-cronos","bci":"CRO","bid":144},{"psid":284,"name":"yearn finance (YFI)","valute":"YFI","network":null,"reserve":329,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-yfi.png","seo":"yfi","bci":"YFI","bid":220},{"psid":79,"name":"NEM","valute":"XEM","network":null,"reserve":71563724,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-nem.png","seo":"nem","bci":"XEM","bid":173},{"psid":276,"name":"Algorand","valute":"ALGO","network":null,"reserve":11591543,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-algorand.png","seo":"algorand","bci":"ALGO","bid":216},{"psid":283,"name":"WBTC ERC20","valute":"WBTC","network":"ERC20","reserve":127,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-wbtc.png","seo":"wbtc-erc20","bci":"WBTC","bid":73},{"psid":293,"name":"Uniswap (UNI)","valute":"UNI","network":null,"reserve":445922,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-uni.png","seo":"uni","bci":"UNI","bid":202},{"psid":379,"name":"SHIBA INU (SHIB)","valute":"SHIB","network":null,"reserve":500086224,"with_codes":0,"group":"crypto","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-shib.png","seo":"shib","bci":"SHIBERC20","bid":210},{"psid":1,"name":"Perfect Money USD","valute":"USD","network":null,"reserve":1504684,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-perfect_money.png","seo":"perfectmoney-usd","bci":"PMUSD","bid":40},{"psid":49,"name":"Perfect Money EUR","valute":"EUR","network":null,"reserve":1173775,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-perfect_money.png","seo":"perfectmoney-eur","bci":"PMEUR","bid":41},{"psid":120,"name":"Perfect Money BTC","valute":"BTC","network":null,"reserve":212,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-perfect_money.png","seo":"perfectmoney-btc","bci":"PMBTC","bid":128},{"psid":22,"name":"Payeer USD","valute":"USD","network":null,"reserve":1256378,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-payeer.png","seo":"payeer","bci":"PRUSD","bid":108},{"psid":50,"name":"Payeer EUR","valute":"EUR","network":null,"reserve":510817,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-payeer.png","seo":"payeer-eur","bci":"PREUR","bid":122},{"psid":41,"name":"Payeer RUB","valute":"RUR","network":null,"reserve":17307827,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-payeer.png","seo":"payeer-rub","bci":"PRRUB","bid":117},{"psid":28,"name":"Advcash USD","valute":"USD","network":null,"reserve":4509293,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-advcash.png","seo":"advcash","bci":"ADVCUSD","bid":88},{"psid":48,"name":"Advcash EUR","valute":"EUR","network":null,"reserve":1023106,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-advcash.png","seo":"advcash-eur","bci":"ADVCEUR","bid":120},{"psid":57,"name":"Advcash RUR","valute":"RUR","network":null,"reserve":15030064,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-advcash.png","seo":"advcash-rur","bci":"ADVCRUB","bid":121},{"psid":325,"name":"Piastrix USD","valute":"USD","network":null,"reserve":2544778,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-piastrix.png","seo":"piastrix-usd","bci":"PIASTRIXUSD","bid":-1},{"psid":326,"name":"Piastrix EUR","valute":"EUR","network":null,"reserve":1447887,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-piastrix.png","seo":"piastrix-eur","bci":"PIASTRIXEUR","bid":-1},{"psid":149,"name":"PayPal USD","valute":"USD","network":null,"reserve":1225487,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-paypal.png","seo":"paypal-usd","bci":"PPUSD","bid":45},{"psid":150,"name":"PayPal EUR","valute":"EUR","network":null,"reserve":1080778,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-paypal.png","seo":"paypal-eur","bci":"PPEUR","bid":80},{"psid":218,"name":"PayPal GBP","valute":"GBP","network":null,"reserve":1441441,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-paypal.png","seo":"paypal-gbp","bci":"PPGBP","bid":164},{"psid":4,"name":"WMZ","valute":"USD","network":null,"reserve":1785877,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-wm.png","seo":"wmz","bci":"WMZ","bid":1},{"psid":15,"name":"YooMoney (Я.Деньги)","valute":"RUR","network":null,"reserve":18242450,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-yandex.png","seo":"yandex-money","bci":"YAMRUB","bid":6},{"psid":37,"name":"Мобильная связь РФ","valute":"RUR","network":null,"reserve":662691,"with_codes":0,"group":"ps","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-mobile_russia.png","seo":"russia-mobile","bci":"MWRUB","bid":49},{"psid":9,"name":"QIWI RUB","valute":"RUR","network":null,"reserve":512300,"with_codes":0,"group":"ps","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-qiwi.png","seo":"qiwi","bci":"QWRUB","bid":63},{"psid":26,"name":"Visa/MasterCard RUB","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-rur","bci":"CARDRUB","bid":59},{"psid":86,"name":"Visa/MasterCard KZT","valute":"KZT","network":null,"reserve":201729929,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-kzt","bci":"CARDKZT","bid":111},{"psid":88,"name":"Visa/MasterCard BYN","valute":"BYN","network":null,"reserve":1399007,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-byn","bci":"CARDBYN","bid":54},{"psid":87,"name":"Visa/MasterCard UAH","valute":"UAH","network":null,"reserve":6279476,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-uah","bci":"CARDUAH","bid":60},{"psid":263,"name":"Visa/MasterCard GBP","valute":"GBP","network":null,"reserve":1369348,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-gbp","bci":"CARDGBP","bid":-1},{"psid":27,"name":"Visa/MasterCard USD","valute":"USD","network":null,"reserve":1464770,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-usd","bci":"CARDUSD","bid":58},{"psid":125,"name":"Visa/MasterCard EUR","valute":"EUR","network":null,"reserve":1023106,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-eur","bci":"CARDEUR","bid":65},{"psid":127,"name":"Visa/MasterCard CNY","valute":"CNY","network":null,"reserve":5241110,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-cny","bci":"CARDCNY","bid":30},{"psid":227,"name":"Visa/MasterCard AMD","valute":"AMD","network":null,"reserve":12677710,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-amd","bci":"CARDAMD","bid":5},{"psid":251,"name":"Visa/MasterCard MDL","valute":"MDL","network":null,"reserve":1666667,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/flags/mdl.png","seo":"visamc-mdl","bci":"CARDMDL","bid":194},{"psid":441,"name":"Visa/MasterCard KGS","valute":"KGS","network":null,"reserve":4547896,"with_codes":0,"group":"bank","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps/flags/kgs.png","seo":"visamc-kgs","bci":"CARDKGS","bid":25},{"psid":310,"name":"Visa/MasterCard SEK","valute":"SEK","network":null,"reserve":1380064,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-sek","bci":"CARDSEK","bid":155},{"psid":311,"name":"Visa/MasterCard BGN","valute":"BGN","network":null,"reserve":1497032,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-bgn","bci":"CARDBGN","bid":-1},{"psid":516,"name":"Visa/MasterCard AZN","valute":"AZN","network":null,"reserve":1225687,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-azn","bci":"CARDAZN","bid":237},{"psid":517,"name":"Visa/MasterCard TJS","valute":"TJS","network":null,"reserve":1364644,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-tjs","bci":"CARDTJS","bid":240},{"psid":446,"name":"Visa/MasterCard CZK","valute":"CZK","network":null,"reserve":1514478,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-czk","bci":"CARDCZK","bid":-1},{"psid":309,"name":"Visa/MasterCard PLN","valute":"PLN","network":null,"reserve":1881438,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-pln","bci":"CARDPLN","bid":38},{"psid":447,"name":"Visa/MasterCard NOK","valute":"NOK","network":null,"reserve":1634440,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-nok","bci":"CARDNOK","bid":-1},{"psid":448,"name":"Visa/MasterCard HUF","valute":"HUF","network":null,"reserve":27046990,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visamc-huf","bci":"CARDHUF","bid":-1},{"psid":503,"name":"Visa/MasterCard UZS","valute":"UZS","network":null,"reserve":64467780,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-uzs","bci":"CARDUZS","bid":239},{"psid":264,"name":"Visa/MasterCard TRY","valute":"TRY","network":null,"reserve":2078643,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-visamc.png","seo":"visa-mastercard-try","bci":"CARDTRY","bid":83},{"psid":109,"name":"Банковский счет RUB","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bank.png","seo":"wire-rub","bci":"WIRERUB","bid":71},{"psid":8,"name":"Зелёный банк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-greenbank.png","seo":"green-bank","bci":"SBERRUB","bid":42},{"psid":7,"name":"Альфа-банк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-alphabank.png","seo":"alfabank","bci":"ACRUB","bid":52},{"psid":31,"name":"МТС банк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-mtsbank.png","seo":"mtsbank","bci":"MTSBRUB","bid":191},{"psid":18,"name":"Тинькофф","valute":"RUR","network":null,"reserve":96135164,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-tcsbank.png","seo":"tinkoff","bci":"TCSBRUB","bid":105},{"psid":108,"name":"МИР","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-mir.png","seo":"mir","bci":"MIRCRUB","bid":17},{"psid":3,"name":"ВТБ","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-vtb_2.png","seo":"vtb","bci":"TBRUB","bid":51},{"psid":25,"name":"Открытие банк","valute":"RUR","network":null,"reserve":24423250,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-openbank.png","seo":"openbank","bci":"OPNBRUB","bid":176},{"psid":24,"name":"Промсвязьбанк","valute":"RUR","network":null,"reserve":26973884,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-promsvyazbank.png","seo":"promsvyazbank","bci":"PSBRUB","bid":53},{"psid":2,"name":"Русский стандарт","valute":"RUR","network":null,"reserve":22619081,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ruskiystandart.png","seo":"russtandart","bci":"RUSSTRUB","bid":64},{"psid":17,"name":"Газпромбанк","valute":"RUR","network":null,"reserve":25546468,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-gazprombank.png","seo":"gazprombank","bci":"GPBRUB","bid":95},{"psid":36,"name":"Россельхозбанк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-rsnb.png","seo":"rshb","bci":"RSHBRUB","bid":34},{"psid":40,"name":"Почта банк","valute":"RUR","network":null,"reserve":24852197,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-pochtabank.png","seo":"pochtabank","bci":"POSTBRUB","bid":170},{"psid":23,"name":"Ак Барс банк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-akbarsbank.png","seo":"akbarsbank","bci":"AKBRSBRUB","bid":-1},{"psid":11,"name":"Авангард банк","valute":"RUR","network":null,"reserve":345055355,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-avangard_bank.png","seo":"avangard","bci":"AVBRUB","bid":79},{"psid":34,"name":"Банк Хоум Кредит","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-homecreditbank.png","seo":"homecreditbank","bci":"HCBRUB","bid":215},{"psid":58,"name":"Райффайзенбанк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-raiffeisen.png","seo":"raiffeisen","bci":"RFBRUB","bid":157},{"psid":39,"name":"Кукуруза","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-kykyryza.png","seo":"kykyryza","bci":"KUKRUB","bid":57},{"psid":415,"name":"РНКБ","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-rnkb.png","seo":"rnkb","bci":"RNKBRUB","bid":132},{"psid":29,"name":"Росбанк","valute":"RUR","network":null,"reserve":86885159,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-rosbank.png","seo":"rosbank","bci":"ROSBRUB","bid":195},{"psid":105,"name":"Kaspi Bank","valute":"KZT","network":null,"reserve":76390554,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-kaspi.png","seo":"kaspi-bank","bci":"KSPBKZT","bid":66},{"psid":110,"name":"Зелёный банк KZT","valute":"KZT","network":null,"reserve":51656635,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-greenbank.png","seo":"green-bank-kzt","bci":"SBERKZT","bid":114},{"psid":153,"name":"ForteBank","valute":"KZT","network":null,"reserve":201729929,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-fortebank.png","seo":"fortebank","bci":"FRTBKZT","bid":75},{"psid":106,"name":"HalykBank","valute":"KZT","network":null,"reserve":81145940,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-halykbank.png?v=2","seo":"halykbank","bci":"HLKBKZT","bid":90},{"psid":401,"name":"Jusan Bank","valute":"KZT","network":null,"reserve":28774557,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps/ps-jysan_bank.png","seo":"jusan-bank","bci":"JSNBKZT","bid":207},{"psid":111,"name":"Любой банк KZT","valute":"KZT","network":null,"reserve":69066407,"with_codes":0,"group":"bank","payin":0,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-bank.png","seo":"wire-kzt","bci":"WIRE_KZT","bid":113},{"psid":101,"name":"Приват 24 UAH","valute":"UAH","network":null,"reserve":4547377,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-privat24.png","seo":"privat24-uah","bci":"P24UAH","bid":56},{"psid":157,"name":"Монобанк","valute":"UAH","network":null,"reserve":2058709,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-monobank.png","seo":"monobank","bci":"MONOBUAH","bid":84},{"psid":155,"name":"УкрСиббанк","valute":"UAH","network":null,"reserve":1185834,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-ukrsibbank.png","seo":"ukrsibbank","bci":"USBUAH","bid":22},{"psid":154,"name":"Ощадбанк","valute":"UAH","network":null,"reserve":3000000,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-oschadbank.png","seo":"oschadbank","bci":"OSDBUAH","bid":68},{"psid":156,"name":"ПУМБ","valute":"UAH","network":null,"reserve":1000000,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-pumb.png","seo":"pumb-uah","bci":"PMBBUAH","bid":118},{"psid":104,"name":"Райффайзен UAH","valute":"UAH","network":null,"reserve":1537569,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-raiffeisen.png","seo":"raiffeisen-uah","bci":"RFBUAH","bid":158},{"psid":219,"name":"Альфа-Банк UAH","valute":"UAH","network":null,"reserve":1176362,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-alphabank.png","seo":"alfabank-auh","bci":"ACUAH","bid":37},{"psid":241,"name":"UZCARD","valute":"UZS","network":null,"reserve":1403174888,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-uzcard.png","seo":"uzcard","bci":"UZCUZS","bid":9},{"psid":387,"name":"Карта HUMO","valute":"UZS","network":null,"reserve":178711799,"with_codes":0,"group":"bank","payin":1,"payout":1,"img":"/res/exchangebox/uploads/ps88/ps-humo.png","seo":"card-humo","bci":"HUMOUZS","bid":199}];
+        var direction = ["12","49"];
+    </script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.register('sw.js', { scope: '/' }).then(function (registration) {
+                    console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                }, function (err) {
+                    console.log('ServiceWorker registration failed: ', err);
+                });
+            });
+        }
+    </script>
+
+    <!-- Start of WSChat Widget script -->
+    <script id="wschat-asset" src="wschat/dist/client_init.js@v=1"></script>
+    <!-- End of WSChat Widget script -->
+
+    <!-- Matomo -->
+    <script>
+        var _paq = window._paq = window._paq || [];
+        /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function() {
+            var u="https://matomo.alfachange.net/";
+            _paq.push(['setTrackerUrl', u+'matomo.php']);
+            _paq.push(['setSiteId', '2']);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+
+
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.0.0/dist/alpine-ie11.js" defer></script>
+    <script src="js/nice-select2.js"></script>
+    <script src="js/script.js"></script>
+
+    <script src="js/tGF5JU5beBXx2ldec5aZ.js"></script>
+</body>
+
+</html>

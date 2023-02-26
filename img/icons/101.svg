@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="16.9332mm" height="16.9332mm" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 1.38265 1.38265"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil2 {fill:#2B2A29}
+    .fil3 {fill:#EBECEC}
+    .fil1 {fill:#5BB305}
+    .fil0 {fill:#010101;fill-rule:nonzero}
+   ]]>
+  </style>
+ </defs>
+<symbol id="Fm4-477-0" viewBox="3.65888 -19.9334 1.06577 1.50096">
+ <polygon class="fil0" points="3.65888,-19.3041 3.65888,-18.4324 4.72465,-19.9334 "/>
+</symbol>
+<symbol id="Fm0-469-0" viewBox="2.59374 -20.6195 2.13028 1.11373">
+ <polygon class="fil0" points="3.65888,-20.6195 2.59374,-20.1354 3.65888,-19.5058 4.72402,-20.1354 "/>
+</symbol>
+<symbol id="Fm1-471-0" viewBox="2.59375 -21.9027 1.06514 2.39693">
+ <polygon class="fil0" points="2.59375,-20.1354 3.65889,-19.5058 3.65889,-20.6195 3.65889,-21.9027 "/>
+</symbol>
+<symbol id="Fm2-473-0" viewBox="3.65888 -21.9027 1.06514 2.39693">
+ <polygon class="fil0" points="3.65888,-21.9027 3.65888,-20.6195 3.65888,-19.5058 4.72402,-20.1354 "/>
+</symbol>
+<symbol id="Fm3-475-0" viewBox="2.59375 -19.9334 1.06514 1.50096">
+ <polygon class="fil0" points="2.59375,-19.9334 3.65889,-18.4324 3.65889,-19.3041 "/>
+</symbol>
+ <g id="__x0023_Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_393356680">
+   <g>
+    <path id="_394607632" class="fil1" d="M0.286643 0.289117l0.80937 0 0 0.804405 -0.383369 0 0 -0.139333c0,-0.156937 -0.128399,-0.285337 -0.285337,-0.285337l-0.140664 0 0 -0.379736zm0.155647 0.155655l0 0.0686866c0.230539,0.00776521 0.417247,0.19404 0.425707,0.424408l0.072361 0 0 -0.493095 -0.498067 0z"/>
+    <rect id="_394610968" class="fil2" x="0.286641" y="0.775731" width="0.319752" height="0.317789"/>
+   </g>
+   <path id="_391013408" class="fil3" d="M0.69134 0c0.381777,0 0.691308,0.309531 0.691308,0.69134 0,0.381777 -0.309531,0.691308 -0.691308,0.691308 -0.38181,0 -0.69134,-0.309531 -0.69134,-0.691308 0,-0.38181 0.309531,-0.69134 0.69134,-0.69134zm0 0.0985308c0.327372,0 0.592777,0.265405 0.592777,0.59281 0,0.327372 -0.265405,0.592777 -0.592777,0.592777 -0.327404,0 -0.59281,-0.265405 -0.59281,-0.592777 0,-0.327404 0.265405,-0.59281 0.59281,-0.59281z"/>
+  </g>
+ </g>
+</svg>

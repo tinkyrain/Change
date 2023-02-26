@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="16.9332mm" height="16.9332mm" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 0.928684 0.928684"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil2 {fill:#FEFEFE}
+    .fil0 {fill:#010101;fill-rule:nonzero}
+    .fil1 {fill:url(#id0)}
+   ]]>
+  </style>
+  <radialGradient id="id0" gradientUnits="userSpaceOnUse" cx="0.59436" cy="0.520063" r="1.32802" fx="0.59436" fy="0.520063">
+   <stop offset="0" style="stop-color:#A5C44F"/>
+   <stop offset="0.380392" style="stop-color:#548E38"/>
+   <stop offset="1" style="stop-color:#035821"/>
+  </radialGradient>
+ </defs>
+<symbol id="Fm4-477-0" viewBox="-0.322274 -4.85667 0.715845 1.00815">
+ <polygon class="fil0" points="-0.322274,-4.434 -0.322274,-3.84851 0.393571,-4.85667 "/>
+</symbol>
+<symbol id="Fm0-469-0" viewBox="-1.0377 -5.31751 1.43085 0.74806">
+ <polygon class="fil0" points="-0.322274,-5.31751 -1.0377,-4.99233 -0.322274,-4.56945 0.393149,-4.99233 "/>
+</symbol>
+<symbol id="Fm1-471-0" viewBox="-1.03769 -6.1794 0.715423 1.60994">
+ <polygon class="fil0" points="-1.03769,-4.99233 -0.322269,-4.56945 -0.322269,-5.31752 -0.322269,-6.1794 "/>
+</symbol>
+<symbol id="Fm2-473-0" viewBox="-0.322274 -6.1794 0.715423 1.60994">
+ <polygon class="fil0" points="-0.322274,-6.1794 -0.322274,-5.31752 -0.322274,-4.56945 0.393149,-4.99233 "/>
+</symbol>
+<symbol id="Fm3-475-0" viewBox="-1.03769 -4.85667 0.715423 1.00815">
+ <polygon class="fil0" points="-1.03769,-4.85667 -0.322269,-3.84852 -0.322269,-4.43401 "/>
+</symbol>
+ <g id="__x0023_Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_394543088">
+   <path id="_394612816" class="fil1" d="M0.464342 -5.48439e-006c0.25645,0 0.464347,0.207897 0.464347,0.464347 0,0.25645 -0.207897,0.464347 -0.464347,0.464347 -0.25645,0 -0.464347,-0.207897 -0.464347,-0.464347 0,-0.25645 0.207897,-0.464347 0.464347,-0.464347z"/>
+   <g>
+    <path id="_394734864" class="fil2" d="M0.694209 0.0608165c0.0254476,0.0145282 0.049376,0.0313927 0.0715165,0.0503029l-0.765232 0.332267c0.00131625,-0.0296706 0.0054131,-0.0586172 0.0120492,-0.0865876l0.681666 -0.295982z"/>
+    <path id="_394599352" class="fil2" d="M0.821897 0.168086c0.0161899,0.0195135 0.0307949,0.0403816 0.0436558,0.062396l-0.846045 0.367356c-0.00721746,-0.024071 -0.0125483,-0.0489592 -0.0157951,-0.0745l0.818184 -0.355252z"/>
+    <path id="_394732344" class="fil2" d="M0.897889 0.297797c0.00892311,0.0232154 0.0160583,0.0473248 0.0211862,0.0721637l-0.834111 0.362173c-0.0144404,-0.0204184 -0.0272629,-0.0420598 -0.038303,-0.0647268l0.851227 -0.36961z"/>
+   </g>
+  </g>
+ </g>
+</svg>
