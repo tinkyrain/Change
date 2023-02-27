@@ -381,6 +381,7 @@ h1,h2,h4,h5,h6{
     font-size:90%;
     color:#6c757d
 }
+
 code,kbd{
     font-size:87.5%
 }
@@ -2493,7 +2494,8 @@ a.btn.disabled,fieldset:disabled a.btn{
     background-color: #ebbd34;
 }
 .btn-outline-primary:hover{
-    border-color:#dba604
+    color: white;
+    border-color:#dba604;
 }
 .btn-outline-primary.focus,.btn-outline-primary:focus{
     box-shadow:0 0 0 .2rem #ebbd34
@@ -14921,11 +14923,11 @@ h6{
     box-shadow:none
 }
 .btn-primary,input[type=submit]{
-    box-shadow:0 8px 20px #f2d98f
+    box-shadow:0 0px 7px #f2d98f
 }
 
 .btn, input[type=submit]{
-    box-shadow:0 8px 20px #f2d98f
+    box-shadow:0 0px 7px #f2d98f
 }
 
 .btn-primary:hover,input[type=submit]:hover{
@@ -14933,7 +14935,7 @@ h6{
     background-color:#dba604;
 }
 .btn-primary:active:not(:disabled):not(.disabled),input[type=submit]:active:not(:disabled):not(.disabled){
-    color:#bd8e00;
+    color: #bd8e00;
     background-color:#dba604;
     border-color:#bd8e00
 }
@@ -14944,7 +14946,6 @@ h6{
 
 
 .btn-outline-primary:hover,input[type=submit]:hover{
-
     background-color:#dba604
 }
 .btn-outline-primary:active:not(:disabled):not(.disabled),input[type=submit]:active:not(:disabled):not(.disabled){
@@ -15492,16 +15493,18 @@ h6{
 }
 .header{
     top:0;
-    background:#fff;
+    background: #0C162A;
     box-shadow:0 5px 40px rgba(43,60,118,.15);
     z-index:10
 }
+
 .header__container{
     display:flex;
     justify-content:space-between;
     align-items:center;
     height:60px
 }
+
 @media (min-width:992px){
     .header__container{
         height:100px;
@@ -15512,6 +15515,7 @@ h6{
         height:45px
     }
 }
+
 .header__account,.header__burger{
     border:0;
     background-color:transparent;
@@ -15563,7 +15567,7 @@ h6{
     left:0;
     width:199px;
     height:calc(100vh - 60px);
-    background-color:#fff;
+    background-color: #0C162A;
     z-index:2;
     transform:translateX(-100%)
 }
