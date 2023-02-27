@@ -15455,8 +15455,9 @@ h6{
 .footer{
     padding-top:27px;
     padding-bottom:29px;
-    background:#424a65
+    background: #0C162A;
 }
+
 @media (min-width:992px){
     .footer{
         padding-top:40px
