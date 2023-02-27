@@ -15667,12 +15667,12 @@ h6{
     background-image:url("../img/1616707373_38-p-krasivii-temno-sinii-fon-44.jpg");
     background-repeat: no-repeat;
     background-position: top;
-    background-size: cover;
+    background-size: 100%;
 }
 @media (min-width:992px){
     .home-banner{
         background:url("../img/1616707373_38-p-krasivii-temno-sinii-fon-44.jpg") no-repeat bottom center/cover;
-        padding-bottom:80px
+        margin-bottom: 100px;
     }
 }
 .home-banner__bg{
@@ -15728,7 +15728,10 @@ h6{
     padding:19px 15px;
     margin-left:-15px;
     margin-right:-15px;
-    position:relative
+    margin-bottom: 50px;
+    position:relative;
+    border-radius:8px;
+    box-shadow:0 5px 40px rgba(43,60,118,.15);
 }
 @media (min-width:992px){
     .home-banner__block{
@@ -15736,8 +15739,6 @@ h6{
         padding:25px 30px 30px;
         margin-right:0;
         margin-left:0;
-        box-shadow:0 5px 40px rgba(43,60,118,.15);
-        border-radius:8px
     }
 }
 .home-banner__change-button{
@@ -15817,13 +15818,15 @@ h6{
     padding:20px 15px;
     margin-left:-15px;
     margin-right:-15px;
-    background:#f5f5fa
+    background:#f5f5fa;
+    border-radius:8px;
 }
 @media (min-width:992px){
     .home-banner__reserv{
         height:250px;
         border-radius:8px;
         padding:26px 30px;
+
     }
     .home-banner__reserv::after{
         content:"";
