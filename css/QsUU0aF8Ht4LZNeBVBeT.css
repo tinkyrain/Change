@@ -15604,7 +15604,6 @@ h6{
 @media (min-width:992px){
     .home-advantages{
         padding-top:130px;
-        padding-bottom:66px
     }
 }
 .home-advantages__title{
@@ -15665,12 +15664,14 @@ h6{
     }
 }
 .home-banner{
-    background-image:url(../img/1616707373_38-p-krasivii-temno-sinii-fon-44.jpg);
-    background-repeat:no-repeat
+    background-image:url("../img/1616707373_38-p-krasivii-temno-sinii-fon-44.jpg");
+    background-repeat: no-repeat;
+    background-position: top;
+    background-size: cover;
 }
 @media (min-width:992px){
     .home-banner{
-        background:url(../img/1616707373_38-p-krasivii-temno-sinii-fon-44.jpg) no-repeat bottom center/cover;
+        background:url("../img/1616707373_38-p-krasivii-temno-sinii-fon-44.jpg") no-repeat bottom center/cover;
         padding-bottom:80px
     }
 }

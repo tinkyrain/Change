@@ -164,7 +164,7 @@ pre{
     overflow:auto;
     display:block;
     font-size:87.5%;
-    color:#212529
+    color:#212529;
 }
 img,svg{
     vertical-align:middle
@@ -1318,7 +1318,7 @@ pre code{
 .table{
     width:100%;
     margin-bottom:1rem;
-    color:#212529
+    color:#212529;
 }
 .table td,.table th{
     padding:.75rem
@@ -15661,12 +15661,12 @@ h6{
     }
 }
 .home-banner{
-    background-image:url(../img/1616707373_38-p-krasivii-temno-sinii-fon-44.jpg);
-    background-repeat:no-repeat
+    background-image:url("../img/1616707373_38-p-krasivii-temno-sinii-fon-44.jpg");
+    object-fit: contain;
 }
 @media (min-width:992px){
     .home-banner{
-        background:url(../img/1616707373_38-p-krasivii-temno-sinii-fon-44.jpg) no-repeat bottom center/cover;
+        background:url("../img/1616707373_38-p-krasivii-temno-sinii-fon-44.jpg") no-repeat bottom center/cover;
         padding-bottom:80px
     }
 }
