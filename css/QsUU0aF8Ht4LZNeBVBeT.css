@@ -1979,7 +1979,7 @@ a.btn.disabled,fieldset:disabled a.btn{
 }
 .btn-primary,input[type=submit]{
     color:#fff;
-    background-color:#ebbd34;
+    background-color: #c7a029;
 }
 .btn-primary:hover,input[type=submit]:hover{
     color:#fff
@@ -2495,8 +2495,8 @@ a.btn.disabled,fieldset:disabled a.btn{
 }
 .btn-outline-primary{
     color:white;
-    border-color:#ebbd34;
-    background-color: #ebbd34;
+    border-color:#c7a029;
+    background-color: #c7a029;
 }
 .btn-outline-primary:hover{
     color: white;
