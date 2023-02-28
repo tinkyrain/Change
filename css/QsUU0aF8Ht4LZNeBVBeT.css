@@ -381,6 +381,7 @@ h1,h2,h4,h5,h6{
     font-size:90%;
     color:#6c757d
 }
+
 code,kbd{
     font-size:87.5%
 }
@@ -417,6 +418,11 @@ pre code{
     margin-right:auto;
     margin-left:auto
 }
+
+.container h1{
+    color: #ebbd34;
+}
+
 @media (min-width:576px){
     .container{
         max-width:540px
@@ -1598,9 +1604,8 @@ pre code{
     padding:.375rem .75rem;
     font-size:1rem;
     font-weight:400;
-    color:#495057;
     background-clip:padding-box;
-    transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out
+    transition:border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 @media (prefers-reduced-motion:reduce){
     .form-control{
@@ -1691,6 +1696,7 @@ select.form-control[multiple],select.form-control[size],textarea.form-control{
 .form-group{
     margin-bottom:1rem
 }
+
 .form-text{
     display:block;
     margin-top:.25rem
@@ -1973,7 +1979,7 @@ a.btn.disabled,fieldset:disabled a.btn{
 }
 .btn-primary,input[type=submit]{
     color:#fff;
-    background-color:#ebbd34;
+    background-color: #c7a029;
 }
 .btn-primary:hover,input[type=submit]:hover{
     color:#fff
@@ -2489,11 +2495,12 @@ a.btn.disabled,fieldset:disabled a.btn{
 }
 .btn-outline-primary{
     color:white;
-    border-color:#ebbd34;
-    background-color: #ebbd34;
+    border-color:#c7a029;
+    background-color: #c7a029;
 }
 .btn-outline-primary:hover{
-    border-color:#dba604
+    color: white;
+    border-color:#dba604;
 }
 .btn-outline-primary.focus,.btn-outline-primary:focus{
     box-shadow:0 0 0 .2rem #ebbd34
@@ -3010,7 +3017,7 @@ a.btn.disabled,fieldset:disabled a.btn{
     padding:.5rem 0;
     margin:.125rem 0 0;
     font-size:1rem;
-    color:#212529;
+    color: #212529;
     text-align:left;
     list-style:none;
     background-color:#fff;
@@ -12177,7 +12184,7 @@ a.text-text:focus,a.text-text:hover{
     color:#242837!important
 }
 .text-grey-2{
-    color:#737a92!important
+    color:#737a92;
 }
 a.text-grey-2:focus,a.text-grey-2:hover{
     color:#515668!important
@@ -14648,6 +14655,7 @@ body{
     color:#424a65
 }
 main{
+    background-color: #101c36;
     position:relative;
     flex-grow:1
 }
@@ -14921,11 +14929,11 @@ h6{
     box-shadow:none
 }
 .btn-primary,input[type=submit]{
-    box-shadow:0 8px 20px #f2d98f
+    box-shadow:0 0px 7px #f2d98f
 }
 
 .btn, input[type=submit]{
-    box-shadow:0 8px 20px #f2d98f
+    box-shadow:0 0px 7px #f2d98f
 }
 
 .btn-primary:hover,input[type=submit]:hover{
@@ -14933,7 +14941,7 @@ h6{
     background-color:#dba604;
 }
 .btn-primary:active:not(:disabled):not(.disabled),input[type=submit]:active:not(:disabled):not(.disabled){
-    color:#bd8e00;
+    color: #bd8e00;
     background-color:#dba604;
     border-color:#bd8e00
 }
@@ -14944,7 +14952,6 @@ h6{
 
 
 .btn-outline-primary:hover,input[type=submit]:hover{
-
     background-color:#dba604
 }
 .btn-outline-primary:active:not(:disabled):not(.disabled),input[type=submit]:active:not(:disabled):not(.disabled){
@@ -15021,41 +15028,37 @@ h6{
     padding-left:15px;
     padding-right:15px;
     border-radius:8px;
+    border: 1px solid #ebbd34;
+    outline: none;
+    overflow: hidden;
     height:100%;
-    background-color:transparent
+    color: #ebbd34;
+    background-color: #253557;
 }
 @media (min-width:992px){
     .form-control{
         font-size:16px
     }
 }
-.form-control:disabled{
-    color:#424a65
-}
 .form-control::placeholder{
     color:#c9cde0;
     font-weight:400
 }
 .form-control:focus{
-    background-color:transparent;
-    box-shadow:none
+    color: #ebbd34;
+    box-shadow:none;
 }
 .form-field{
     position:relative;
     display:flex;
     align-items:center;
-    border:1px solid #c9cde0;
     box-shadow:inset 0 2px 4px rgba(66,74,101,.1);
     border-radius:8px;
     background:#fff;
     height:50px;
     min-height:40px
 }
-.form-field--grey-border{
-    border-width:2px;
-    border-color:#f5f5fa;
-    box-shadow:none
-}
+
 @media (min-width:992px){
     .form-field{
         min-height:50px
@@ -15080,7 +15083,7 @@ h6{
     align-items:center;
     justify-content:center;
     height:100%;
-    border-left:1px solid #c9cde0;
+    border-left:1px solid #ebbd34;
     padding:8px
 }
 .form-field .dropdown.open .dropdown-menu{
@@ -15089,18 +15092,19 @@ h6{
     right:0;
     width:100%;
     border:0;
-    background:#fff;
+    background: #253557;
     box-shadow:0 5px 40px rgba(43,60,118,.15);
     border-radius:8px;
     padding:0;
-    z-index:2
+    z-index:2;
 }
 .form-field .dropdown .dropdown-menu__list{
     max-height:314px;
-    overflow-y:auto
+    overflow-y:auto;
 }
 .form-field .dropdown .dropdown-menu__list>div:nth-child(even) .dropdown-menu__item:nth-child(even),.form-field .dropdown .dropdown-menu__list>div:nth-child(odd) .dropdown-menu__item:nth-child(odd){
-    background:#fff
+    background:#253557;
+    color: white;
 }
 .form-field .dropdown .dropdown-menu__item{
     flex-grow:1;
@@ -15112,9 +15116,9 @@ h6{
     align-items:center;
     font-size:14px;
     line-height:120%;
-    color:#424a65;
+    color: white;
     height:35px;
-    background:#fff;
+    background: #253557;
     transition:background-color 50ms ease-in-out;
     cursor:pointer
 }
@@ -15273,7 +15277,7 @@ h6{
     border-bottom:1px solid #dfe2ef
 }
 .contacts__item-icon{
-    background:#fff;
+    background: #253557;
     box-shadow:0 5px 20px rgba(43,60,118,.15);
     border-radius:8px;
     flex:0 0 76px;
@@ -15405,14 +15409,24 @@ h6{
     line-height:150%
 }
 .faq__item{
-    background:#fff;
+    background: #253557;
     box-shadow:0 5px 20px rgba(43,60,118,.15);
     margin-left:-15px;
     margin-right:-15px;
     padding-left:15px;
     padding-right:15px;
-    padding-bottom:21px
+    padding-bottom:21px;
+    border-radius: 8px;
 }
+
+.faq__item h4, .text-right{
+    color: #ebbd34;
+}
+
+.faq__item p{
+    color: white;
+}
+
 @media (min-width:992px){
     .faq__item{
         margin-left:0;
@@ -15420,16 +15434,16 @@ h6{
         padding-right:30px;
         padding-left:30px;
         box-shadow:0 5px 40px rgba(43,60,118,.15);
-        border-radius:8px;
         line-height:150%;
-        padding-bottom:30px
+        padding-bottom:30px;
+        border-radius:8px;
     }
 }
 .faq__item-header{
     margin-left:-15px;
     margin-right:-15px;
     padding:16px 15px 20px;
-    border-bottom:2px solid #f5f5fa;
+    border-bottom:2px solid #ebbd34;
     margin-bottom:20px
 }
 @media (min-width:992px){
@@ -15454,8 +15468,9 @@ h6{
 .footer{
     padding-top:27px;
     padding-bottom:29px;
-    background:#424a65
+    background: #0C162A;
 }
+
 @media (min-width:992px){
     .footer{
         padding-top:40px
@@ -15492,16 +15507,18 @@ h6{
 }
 .header{
     top:0;
-    background:#fff;
+    background: #0C162A;
     box-shadow:0 5px 40px rgba(43,60,118,.15);
     z-index:10
 }
+
 .header__container{
     display:flex;
     justify-content:space-between;
     align-items:center;
     height:60px
 }
+
 @media (min-width:992px){
     .header__container{
         height:100px;
@@ -15512,6 +15529,7 @@ h6{
         height:45px
     }
 }
+
 .header__account,.header__burger{
     border:0;
     background-color:transparent;
@@ -15563,7 +15581,7 @@ h6{
     left:0;
     width:199px;
     height:calc(100vh - 60px);
-    background-color:#fff;
+    background-color: #0C162A;
     z-index:2;
     transform:translateX(-100%)
 }
@@ -15599,7 +15617,7 @@ h6{
 .home-advantages{
     padding-top:36px;
     padding-bottom:40px;
-    background-color:#fff
+    background-color: #101c36;
 }
 @media (min-width:992px){
     .home-advantages{
@@ -15621,11 +15639,12 @@ h6{
 .home-advantages__item-icon{
     width:75px;
     height:75px;
-    background:#fff;
+    background: #253557;
     box-shadow:0 5px 20px rgba(43,60,118,.15);
     border-radius:8px;
-    margin-right:25px
+    margin-right:25px;
 }
+
 @media (min-width:992px){
     .home-advantages__item-icon{
         width:129px;
@@ -15667,12 +15686,12 @@ h6{
     background-image:url("../img/1616707373_38-p-krasivii-temno-sinii-fon-44.jpg");
     background-repeat: no-repeat;
     background-position: top;
-    background-size: cover;
+    background-size: 100%;
 }
 @media (min-width:992px){
     .home-banner{
         background:url("../img/1616707373_38-p-krasivii-temno-sinii-fon-44.jpg") no-repeat bottom center/cover;
-        padding-bottom:80px
+        margin-bottom: 100px;
     }
 }
 .home-banner__bg{
@@ -15724,11 +15743,13 @@ h6{
     }
 }
 .home-banner__block{
-    background-color:#fff;
+    background-color: #101c36;
     padding:19px 15px;
     margin-left:-15px;
     margin-right:-15px;
-    position:relative
+    margin-bottom: 50px;
+    position:relative;
+    border-radius:8px;
 }
 @media (min-width:992px){
     .home-banner__block{
@@ -15736,8 +15757,6 @@ h6{
         padding:25px 30px 30px;
         margin-right:0;
         margin-left:0;
-        box-shadow:0 5px 40px rgba(43,60,118,.15);
-        border-radius:8px
     }
 }
 .home-banner__change-button{
@@ -15788,17 +15807,21 @@ h6{
 .home-banner__block-info-item-label{
     width:40%;
     font-size:12px;
-    line-height:130%
+    line-height:130%;
+    color: #ebbd34;
 }
 @media (min-width:992px){
     .home-banner__block-info-item-label{
         width:auto;
-        font-size:14px
+        font-size:14px;
+        color: #ebbd34;
     }
 }
+
 .home-banner__block-info-item-value{
     width:60%
 }
+
 @media (min-width:992px){
     .home-banner__block-info-item-value{
         width:auto;
@@ -15817,13 +15840,15 @@ h6{
     padding:20px 15px;
     margin-left:-15px;
     margin-right:-15px;
-    background:#f5f5fa
+    background: #101c36;;
+    border-radius:8px;
 }
 @media (min-width:992px){
     .home-banner__reserv{
-        height:250px;
+        height: 700px;
         border-radius:8px;
         padding:26px 30px;
+
     }
     .home-banner__reserv::after{
         content:"";
@@ -15833,7 +15858,6 @@ h6{
         display:block;
         height:97px;
         width:100%;
-        background:linear-gradient(180deg,rgba(245,245,250,0) 12.05%,#f5f5fa 62.65%);
         border-radius:8px
     }
 }
@@ -15867,10 +15891,12 @@ h6{
     line-height:130%
 }
 .home-banner__reserv-item:nth-child(odd){
-    background-color:#fff
+    background-color: #101c36;
+    color: #ebbd34;
 }
 .home-banner__reserv-item:nth-child(even){
-    background:rgba(255,255,255,.4)
+    background: #253557;
+    color: white;
 }
 @media (min-width:992px){
     .home-banner__reserv-item{
@@ -15878,10 +15904,10 @@ h6{
     }
 }
 .home-banner__reserv-item-img,.home-banner__reserv-item-value{
-    margin-right:10px
+    margin-right:10px;
 }
 .home-info{
-    background:#f5f5fa;
+    background: #253557;
     padding-top:36px
 }
 @media (min-width:992px){
@@ -15910,10 +15936,14 @@ h6{
     margin-right:20px
 }
 .home-info__changes{
-    background-color:#fff;
+    background: #182644;
+    box-shadow:0 5px 40px rgba(43,60,118,.15);
+    border-radius:8px;
+    color: #ebbd34;
     padding:39px 15px;
     margin-left:-15px;
-    margin-right:-15px
+    margin-right:-15px;
+    margin-bottom: 30px;
 }
 @media (min-width:992px){
     .home-info__changes{
@@ -15923,9 +15953,10 @@ h6{
         margin-right:0
     }
     .home-info__block{
-        background:#fff;
+        background: #182644;
         box-shadow:0 5px 40px rgba(43,60,118,.15);
-        border-radius:8px
+        border-radius:8px;
+        color: #ebbd34;
     }
     .home-info__block>div{
         max-height:455px;
@@ -15937,10 +15968,10 @@ h6{
     padding:15px;
     margin-left:-15px;
     margin-right:-15px;
-    border-bottom:1px solid #f5f5fa
+    border-bottom:1px solid #ebbd34;
 }
-.home-info__changes-item:first-of-type{
-    border-top:1px solid #f5f5fa
+.home-info__changes-item:last-child{
+    border-bottom: none;
 }
 @media (min-width:992px){
     .home-info__changes-item{
@@ -16036,11 +16067,13 @@ h6{
     width:auto;
     padding:30px;
     align-items:center;
-    margin-right:-4px
+    margin-right:-4px;
+    background-color: #0C162A;
 }
 #modal-text{
     text-align:center;
-    margin-bottom:20px
+    margin-bottom:20px;
+    color: #ebbd34;
 }
 .modal-wrapper._close{
     animation:closeModal .2s
@@ -16370,9 +16403,12 @@ h6{
     justify-content:space-between;
     align-items:center
 }
+
 .form-field{
-    transition:all .2s
+    transition:all .2s;
+    background-color: #253557;
 }
+
 .requisite.wrong .form-field{
     border-color:#e74c3c;
     box-shadow:inset 0 2px 4px rgb(231 76 60 / 30%)
