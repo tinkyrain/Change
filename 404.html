@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <base href="">
+    <meta charset="utf-8">
+
+    <title>AlfaChange</title>
+    <meta name="description" content="ОБМЕН ЭЛЕКТРОННЫХ ВАЛЮТ">
+    <meta name="keywords" content="Bitcoin, Ethereum, Crypto, Exchanger, Change">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/QsUU0aF8Ht4LZNeBVBeT.css">
+
+    <link href="css/nice-select2.css" rel="stylesheet">
+
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+
+<body>
+
+    
+    <script>
+        function openModal(html, btnText) {
+            document.querySelector('.modal-wrapper.text-modal h4').innerHTML = html;
+    
+            if (btnText) {
+                document.querySelector('.modal-wrapper.text-modal button').innerHTML = btnText;
+            }
+    
+            document.querySelector('.modal-wrapper.text-modal').style.display = 'flex';
+        }
+    
+        function closeModal() {
+            document.querySelector('.modal-wrapper.text-modal').classList.add("_close");
+    
+            setTimeout(function () {
+                document.querySelector('.modal-wrapper.text-modal').style.display = 'none';
+                document.querySelector('.modal-wrapper.text-modal').classList.remove("_close");
+            }, 200);
+        }
+    </script>
+    
+    <div class="modal-wrapper security-modal">
+        <div class="modal-content">
+            <h4 id="modal-text">Введите код подтверждения:</h4>
+            <div style="display: flex; margin-top: 20px;">
+                <div class="form-field">
+                    <input type="text" class="form-control securityCode" placeholder="Код">
+                </div>
+                <button class="btn btn-primary securityCodeGet" style="max-width: 100%; margin-left: 20px;">Получить код</button>
+            </div>
+            <div style="display: flex; justify-content: center; margin-top: 30px;">
+                <button class="btn btn-primary" style="min-width: 180px;" onclick="closeSecurityModal()">Закрыть</button>
+                <button class="btn btn-primary securityConfirm" style="min-width: 200px; margin-left: 20px;" onclick="closeSecurityModal()">Подтвердить</button>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function openSecurityModal(actionId) {
+            document.querySelector('.modal-wrapper.security-modal').style.display = 'flex';
+            document.querySelector('.modal-wrapper.security-modal .securityCodeGet').setAttribute('data-action', actionId);
+        }
+    
+        function closeSecurityModal() {
+            document.querySelector('.modal-wrapper.security-modal').classList.add("_close");
+    
+            setTimeout(function () {
+                document.querySelector('.modal-wrapper.security-modal').style.display = 'none';
+                document.querySelector('.modal-wrapper.security-modal').classList.remove("_close");
+            }, 200);
+        }
+    </script>
+    <header class="header position-sticky">
+        <div class="container">
+            <div class="header__container">
+                <button aria-controls="navbar" aria-expanded="false"
+                    class="header__burger d-flex justify-content-center align-items-center d-lg-none"
+                    data-target="#navbarSupportedContent" data-toggle="collapse" type="button">
+                    <svg class="burger" fill="none" height="30" viewbox="0 0 30 30" width="30"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#3F71F1" height="3" rx="1.5" width="20" x="5" y="6" />
+                        <rect fill="#3F71F1" height="3" rx="1.5" width="20" x="5" y="13" />
+                        <rect fill="#3F71F1" height="3" rx="1.5" width="20" x="5" y="20" /></svg>
+                    <svg class="close d-none" fill="none" height="30" viewbox="0 0 30 30" width="30"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect fill="#3F71F1" height="3" rx="1.5" transform="rotate(-45 7.01 21.01)" width="20" x="7.01"
+                            y="21.01" />
+                        <rect fill="#3F71F1" height="3" rx="1.5" transform="rotate(45 9.132 6.868)" width="20" x="9.132"
+                            y="6.868" /></svg>
+                </button>
+                <a class="header__logo" href="index.html">
+                    <img src="logo.svg" alt="">
+                </a>
+                <nav class="header__menu header__menu-desktop d-none d-lg-block ml-lg-10 h-100">
+                    <ul class="d-flex m-0 p-0 h-100">
+    
+                        <li class="d-flex align-items-center justify-content-center">
+                            <a class="pt-2 pb-2" style="color: white" href="index.html">Обмен валют</a>
+                        </li>
+    
+    
+                        <li class="d-flex align-items-center justify-content-center">
+                            <a class="pt-2 pb-2" style="color: white" href="rules.html">Правила сервиса</a>
+                        </li>
+    
+                        <li class="d-flex align-items-center justify-content-center">
+                            <a class="pt-2 pb-2" href="reviews.html" style="color: white">Отзывы</a>
+                        </li>
+    
+                        <li class="d-flex align-items-center justify-content-center">
+                            <a class="pt-2 pb-2" href="contacts.html" style="color: white">Контакты</a>
+                        </li>
+    
+                    </ul>
+                </nav>
+                <div class="header__login d-none d-lg-flex d-xl-flex ml-auto">
+                    <a href="register.html" class="btn btn-outline-primary d-none d-xl-flex w-xl-130px mr-5">Регистрация</a>
+                    <a href="login.html" class="btn btn-primary w-80px">Войти</a>
+                </div>
+                <div class="site-header__dropdown dropdown">
+
+                            <path d="M1 2l4 3.826L9 2" stroke-width="1.5" stroke="currentColor"></path>
+                        </svg>
+                    </button>
+                    <div aria-labelledby="dropdownMenuButton" class="language-box dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 43px, 0px);">
+                        <a class="dropdown-item language-switch-item active" data-code="ru">
+                        Русский 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="en">
+                        English 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="zh">
+                        中文 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="ar">
+                        عرب 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="et">
+                        Eesti 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="de">
+                        Deutsch 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="ko">
+                        한국어 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="bg">
+                        Български 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="no">
+                        Norsk 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="pt">
+                        Portuguesa 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="lv">
+                        latviešu 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="sl">
+                        slovenščina 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="ro">
+                        Română 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="es">
+                        Español 
+                        </a>
+                        <a class="dropdown-item language-switch-item " data-code="it">
+                        Italiana 
+                        </a>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="header__menu header__menu-mobile position-fixed d-xl-none" id="navbarSupportedContent" data-parent="body">
+        <ul>
+    
+            <li>
+                <a href="index.html" style="color: white">Обмен валют</a>
+            </li>
+    
+    
+            <li>
+                <a href="rules.html" style="color: white">Правила сервиса</a>
+            </li>
+    
+            <li>
+                <a href="reviews.html" style="color: white">Отзывы</a>
+            </li>
+    
+            <li>
+                <a href="contacts.html" style="color: white">Контакты</a>
+            </li>
+            <hr class="mx-n3_75" style="background-color: #ebbd34;">
+            <li>
+                <a href="login.html" style="color: white">Войти</a>
+            </li>
+            <li>
+                <a href="register.html" style="color: white">Зарегистрироваться</a>
+            </li>
+        </ul>
+    </nav>
+    
+    <nav class="header__menu header__menu-mobile header__menu-mobile-account position-fixed d-xl-none" id="account"
+        data-parent="body">
+        <ul class="text-right">
+            <li>
+                <a href="login.html">Войти</a>
+            </li>
+            <li>
+                <a href="register.html">Регистрация</a>
+            </li>
+        </ul>
+    </nav>
+
+    <main class="d-flex align-items-center justify-content-center">
+        <h1 class="text-center" style="color: #ebbd34">Такой страницы не найдено ;(</h1>
+        <h2 class="text-center pt-10" style="color: white">Вы можете вернутся на <a style="color: #ebbd34; text-decoration: underline; cursor: pointer;" href="index.html">главную страницу</a></h2>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-6 order-lg-2 col-lg-2">
+                    <h6 class="text-#ebbd34-2 mb-3" style="color: #ebbd34">Навигация</h6>
+                    <ul class="mb-6_5">
+                        <li>
+                            <a href="index.html">Главная</a>
+                        </li>
+    
+                        <li>
+                            <a href="index.html">Обмен валют</a>
+                        </li>
+    
+    
+                        <li>
+                            <a href="reviews.html">Отзывы</a>
+                        </li>
+    
+                        <li>
+                            <a href="contacts.html">Контакты</a>
+                        </li>
+    
+                    </ul>
+                </div>
+                <div class="col-6 order-lg-3 col-lg-3">
+                    <h6 class="text-#ebbd34-2 mb-3" style="color: #ebbd34">Полезная
+                        <br class="d-lg-none">
+                        информация</h6>
+                    <ul class="mb-6_5">
+    
+                        <li>
+                            <a href="rules.html">Правила сервиса</a>
+                        </li>
+    
+                        <li>
+                            <a href="aml.html">AML/CFT</a>
+                        </li>
+    
+                        <li>
+                            <a href="privacy.html">Политика конфиденциальности</a>
+                        </li>
+    
+                    </ul>
+                </div>
+                <div class="col-6 order-lg-4 col-lg-2">
+                    <h6 class="text-#ebbd34-2 mb-3" style="color: #ebbd34">Личный кабинет</h6>
+                    <ul>
+    
+                        <li>
+                            <a href="login.html">Мой профиль</a>
+                        </li>
+    
+                        <li>
+                            <a href="login.html">Последние обмены</a>
+                        </li>
+    
+                        <li>
+                            <a href="login.html">Рефералы</a>
+                        </li>
+    
+                        <li>
+                            <a href="login.html">Настройки</a>
+                        </li>
+    
+                    </ul>
+                </div>
+                <div class="col-12 text-center text-lg-left mt-3 mt-lg-0 col-lg-3 order-lg-1">
+                    <a href="index.html">
+                        <img src="logo.svg" alt="">
+                    </a>
+                    <p class="text-yellow-3 footer__copyright mb-0 mt-1"  style="margin-top: 15px !important; color: #ebbd34;">Copyright
+                        AlfaChange © 2023
+                    </p>
+
+                    <a href="https://kurs.expert/ru/obmennik/alfachange-com" title="Обмен Биткоин, Киви, Яндекс, AdvCash"
+                        target="_blank" rel="noopener" disabled="disabled" aria-disabled="true"
+                        style="display:block; margin-top: 20px; filter: invert(1)">
+                        <img src="https://kurs.expert/i/logo.png" width="31" height="31">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
