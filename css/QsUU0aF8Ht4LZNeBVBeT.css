@@ -5973,7 +5973,7 @@ a.bg-secondary:focus,a.bg-secondary:hover,button.bg-secondary:focus,button.bg-se
     background-color:#545b62!important
 }
 .bg-success{
-    background-color:#13ca88!important
+    background-color: #ebbd34;
 }
 a.bg-success:focus,a.bg-success:hover,button.bg-success:focus,button.bg-success:hover{
     background-color:#0f9b69!important
@@ -15295,7 +15295,7 @@ h6{
     flex-direction:column;
     justify-content:center;
     position:relative;
-    background:#fff;
+    background: #253557;
     box-shadow:0 5px 20px rgba(43,60,118,.15);
     border-radius:8px;
     margin-bottom:36px;
