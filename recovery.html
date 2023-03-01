@@ -5,7 +5,7 @@
     <base href="">
     <meta charset="utf-8">
 
-    <title>AlfaChange</title>
+    <title>MaxChange</title>
     <meta name="description" content="ОБМЕН ЭЛЕКТРОННЫХ ВАЛЮТ">
     <meta name="keywords" content="Bitcoin, Ethereum, Crypto, Exchanger, Change">
 
@@ -240,17 +240,19 @@
                     </div>
                 </div>
                 <div class="col-12 col-lg-9">
-                    <div class="w-lg-440px ml-lg-13 ml-xl-14">
-                        <div class="form-group mb-lg-3 mb-0">
-                            <label class="font-weight-normal" for="recoveryEmail" style="color: #ebbd34;">Ваш e-mail</label>
-                            <div class="form-field">
-                                <input type="email" class="form-control" placeholder="Введите ваш e-mail..."
-                                    id="recoveryEmail">
+                    <form method="post">
+                        <div class="w-lg-440px ml-lg-13 ml-xl-14">
+                            <div class="form-group mb-lg-3 mb-0">
+                                <label class="font-weight-normal" for="recoveryEmail" style="color: #ebbd34;">Ваш e-mail</label>
+                                <div class="form-field">
+                                    <input type="email" class="form-control" placeholder="Введите ваш e-mail..."
+                                        id="recoveryEmail" name="recoveryEmail">
+                                </div>
                             </div>
+                            <button class="btn btn-primary w-100 h-lg-50px w-lg-291px font-size-lg-16 mt-10 mt-lg-12"
+                                id="recoveryButton" type="submit" onclick="alert('Ваш пароль отправлен на Email!')">Отправить пароль на E-mail</button>
                         </div>
-                        <button class="btn btn-primary w-100 h-lg-50px w-lg-291px font-size-lg-16 mt-10 mt-lg-12"
-                            id="recoveryButton">Отправить пароль на E-mail</button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -330,10 +332,10 @@
                     <img src="logo.svg" alt="">
                 </a>
                 <p class="text-yellow-3 footer__copyright mb-0 mt-1"  style="margin-top: 15px !important; color: #ebbd34;">Copyright
-                    AlfaChange © 2023
+                    MaxChange © 2023
                 </p>
 
-                <a href="https://kurs.expert/ru/obmennik/alfachange-com" title="Обмен Биткоин, Киви, Яндекс, AdvCash"
+                <a href="https://kurs.expert/ru/obmennik/MaxChange-com" title="Обмен Биткоин, Киви, Яндекс, AdvCash"
                     target="_blank" rel="noopener" disabled="disabled" aria-disabled="true"
                     style="display:block; margin-top: 20px; filter: invert(1)">
                     <img src="https://kurs.expert/i/logo.png" width="31" height="31" border="0">
@@ -373,7 +375,7 @@
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
         (function() {
-            var u="https://matomo.alfachange.net/";
+            var u="https://matomo.MaxChange.net/";
             _paq.push(['setTrackerUrl', u+'matomo.php']);
             _paq.push(['setSiteId', '2']);
             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];

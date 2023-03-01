@@ -1,0 +1,754 @@
+<form method="post">
+    <div class="home-banner__block" id="calculator">
+            <div class="home-banner__change d-lg-flex">
+            <div class="w-lg-440px calculator__form">
+                <div class="form-group position-relative calculator_ps-in">
+                    <label style="color: #ebbd34;">Из валюты:</label>
+                    <div class="form-field" style="border: 1px solid #ebbd34;">
+                        <input class="form-control calculator__input" style='border: none;' placeholder="Сумма" type="text" name="inVal">
+                        <div class="form-currency calculator__currency"></div>
+                        <div class="dropdown">
+                            <button class="dropdown-btn" type="button">
+                                <div class="form-currency calculator__ps-name" style="
+                                    color: #ebbd34;;
+                                    padding-right: 5px;
+                                "></div>
+                                <img class="form-icon" width="24" height="24" alt="" src="index.html">
+                                <svg fill="none" height="6" viewbox="0 0 11 6" width="11"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd"
+                                        d="M1.076.12a.44.44 0 01.637.034L5.791 4.85 9.87.154a.44.44 0 01.637-.034.48.48 0 01.035.661L6.143 5.846A.441.441 0 015.791 6a.441.441 0 01-.352-.154L1.042.781a.48.48 0 01.034-.66z"
+                                        fill-rule="evenodd" fill="#A2A8BE" /></svg>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <div class="form-field form-field--search"
+                                    style="padding-right: 236px;">
+                                    <input type="text" name="search" id=""
+                                        class="form-control calculator__search" placeholder="Поиск..." style="border: none">
+                                </div>
+                                <div class="calculator__groups">
+                                    <div class="calculator__groups_inner">
+                                        <p class="calculator__group" data-el="crypto-in"
+                                            data-tab="crypto">Крипта</p>
+                                    </div>
+                                </div>
+                                <div class="m-2_5 overflow-hidden">
+                                    <div class="dropdown-menu__list d-flex flex-wrap scroll rounded">
+                                        <div class="flex-wrap w-100 calculator__list" id="crypto-in">
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="12">
+                                                <img src="img/icons/12.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Bitcoin
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="42">
+                                                <img src="img/icons/42.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Ethereum
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="171">
+                                                <img src="img/icons/171.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDT ERC20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="169">
+                                                <img src="img/icons/169.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDT TRC20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="319">
+                                                <img src="img/icons/319.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDT BEP20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="434">
+                                                <img src="img/default_icons/ps88/ps-tether.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDT SOL
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="117">
+                                                <img src="img/default_icons/ps88/ps-usdc.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USD Coin ERC20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="334">
+                                                <img src="img/default_icons/ps88/ps-usdc.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDC BEP20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="468">
+                                                <img src="img/default_icons/ps88/ps-usdc.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDC SOL
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="213">
+                                                <img src="img/default_icons/ps88/ps-bnb.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Binance USD (BUSD)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="259">
+                                                <img src="img/icons/259.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Dai (DAI)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="168">
+                                                <img src="img/default_icons/ps88/ps-pax.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Pax Dollar (USDP)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="72">
+                                                <img src="img/icons/72.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Monero
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="367">
+                                                <img src="img/icons/367.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Solana
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="13">
+                                                <img src="img/icons/13.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Litecoin
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="272">
+                                                <img src="img/icons/272.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Dash
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="84">
+                                                <img src="img/default_icons/ps88/ps-tron.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Tron
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="80">
+                                                <img src="img/default_icons/ps88/ps-stellar.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Stellar
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="82">
+                                                <img src="img/default_icons/ps88/ps-cardano.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Cardano (ADA)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="70">
+                                                <img src="img/icons/70.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Ripple
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="55">
+                                                <img src="img/default_icons/ps88/ps-zcash.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                ZCash
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="62">
+                                                <img src="img/icons/62.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Bitcoin Cash
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="323">
+                                                <img src="img/default_icons/ps88/ps-bnb.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                BNB BEP20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="90">
+                                                <img src="img/default_icons/ps88/ps-bnb.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Binance Coin (BNB)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="75">
+                                                <img src="img/icons/75.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Ethereum classic (ETC)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="273">
+                                                <img src="img/icons/273.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Dogecoin
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="417">
+                                                <img src="img/icons/417.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Toncoin
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="223">
+                                                <img src="img/default_icons/ps88/ps-atom.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Cosmos (ATOM)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="308">
+                                                <img src="img/icons/308.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Polkadot
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="63">
+                                                <img src="img/default_icons/svg/bitcoin_gold.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Bitcoin Gold
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="400">
+                                                <img src="img/icons/400.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Avalanche (AVAX)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="128">
+                                                <img src="img/default_icons/ps88/ps-bittorrent.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                BitTorrent 
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="201">
+                                                <img src="img/icons/151.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Tezos
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="182">
+                                                <img src="img/default_icons/ps/ps-link.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Chainlink (LINK)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="247">
+                                                <img src="img/icons/247.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Ravencoin
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="246">
+                                                <img src="img/icons/246.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Basic Attention Token (BAT)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="464">
+                                                <img src="img/icons/464.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Decentraland (MANA)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="380">
+                                                <img src="img/icons/380.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                MATIC
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="474">
+                                                <img src="img/icons/474.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                NEAR Protocol
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="395">
+                                                <img src="img/icons/395.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                CRO cronos
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="284">
+                                                <img src="img/icons/284.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                yearn finance (YFI)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="79">
+                                                <img src="img/icons/79.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                NEM
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="276">
+                                                <img src="img/icons/276.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Algorand
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="283">
+                                                <img src="img/icons/283.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                WBTC ERC20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="293">
+                                                <img src="img/icons/293.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Uniswap (UNI)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="379">
+                                                <img src="img/icons/379.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                SHIBA INU (SHIB)
+                                            </div>
+                                        </div>
+                                        <div class="flex-wrap w-100 calculator__list" id="check-in">
+                                        </div>
+                                        <div class="flex-wrap w-100 calculator__list" id="cash-in">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group position-relative mb-lg-0 calculator_ps-out">
+                    <label style="color: #ebbd34;">В валюту:</label>
+                    <button class="home-banner__change-button position-absolute calculator__swap"
+                        type="button">
+                        <svg fill="none" height="20" viewbox="0 0 20 20" width="20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0)" fill="#A2A8BE">
+                                <path
+                                    d="M17.143 0a.714.714 0 00-.715.714v2.61A9.268 9.268 0 00.714 10a.714.714 0 101.429 0 7.857 7.857 0 0113.653-5.304L12.63 5.751a.715.715 0 00.452 1.357l4.286-1.428a.714.714 0 00.488-.68V.714A.714.714 0 0017.143 0zM18.571 9.286a.714.714 0 00-.714.714 7.857 7.857 0 01-13.653 5.304l3.165-1.055a.715.715 0 00-.452-1.357L2.631 14.32a.714.714 0 00-.488.68v4.286a.714.714 0 101.428 0v-2.61A9.268 9.268 0 0019.286 10a.714.714 0 00-.715-.714z" />
+                            </g>
+                            <defs>
+                                <clipPath id="clip0">
+                                    <path d="M0 0h20v20H0z" fill="#fff" />
+                                </clipPath>
+                            </defs>
+                        </svg>
+                    </button>
+                    <div class="form-field" style="border: 1px solid #ebbd34;">
+                        <input class="form-control calculator__input" placeholder="Сумма" type="text" style="border: none;" name="sum">
+                        <div class="form-currency calculator__currency"></div>
+                        <div class="dropdown">
+                            <button class="dropdown-btn" type="button">
+                                <div class="form-currency calculator__ps-name" style="
+                                    color: #ebbd34;
+                                    padding-right: 5px;
+                                "></div>
+                                <img class="form-icon" width="24" height="24" alt="" src="index.html">
+                                <svg fill="none" height="6" viewbox="0 0 11 6" width="11"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path clip-rule="evenodd"
+                                        d="M1.076.12a.44.44 0 01.637.034L5.791 4.85 9.87.154a.44.44 0 01.637-.034.48.48 0 01.035.661L6.143 5.846A.441.441 0 015.791 6a.441.441 0 01-.352-.154L1.042.781a.48.48 0 01.034-.66z"
+                                        fill-rule="evenodd" fill="#A2A8BE" /></svg>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <div class="form-field form-field--search"
+                                    style="padding-right: 236px;">
+                                    <input type="text" name="seacrh" id=""
+                                        class="form-control calculator__search" name="search" placeholder="Поиск..." style="border: none;">
+                                </div>
+                                <div class="calculator__groups">
+                                    <div class="calculator__groups_inner">
+                                        <p class="calculator__group active" data-el="crypto-out"
+                                            data-tab="crypto">Крипта</p>
+                                    </div>
+                                </div>
+                                <div class="m-2_5 overflow-hidden">
+                                    <div class="dropdown-menu__list d-flex flex-wrap scroll rounded">
+                                        <div class="flex-wrap w-100 calculator__list" id="crypto-out">
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="12">
+                                                <img src="img/icons/12.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Bitcoin
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="42">
+                                                <img src="img/icons/42.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Ethereum
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="171">
+                                                <img src="img/icons/171.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDT ERC20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="169">
+                                                <img src="img/icons/169.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDT TRC20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="426">
+                                                <img src="img/default_icons/ps88/ps-tether.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDT POLYGON
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="319">
+                                                <img src="img/icons/319.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDT BEP20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="434">
+                                                <img src="img/default_icons/ps88/ps-tether.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDT SOL
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="117">
+                                                <img src="img/default_icons/ps88/ps-usdc.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USD Coin ERC20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="334">
+                                                <img src="img/default_icons/ps88/ps-usdc.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDC BEP20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="427">
+                                                <img src="img/default_icons/ps88/ps-usdc.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDC POLYGON
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="468">
+                                                <img src="img/default_icons/ps88/ps-usdc.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                USDC SOL
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="213">
+                                                <img src="img/default_icons/ps88/ps-bnb.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Binance USD (BUSD)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="116">
+                                                <img src="img/default_icons/ps88/ps-tusd.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                TrueUSD ERC20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="259">
+                                                <img src="img/icons/259.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Dai (DAI)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="72">
+                                                <img src="img/icons/72.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Monero
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="367">
+                                                <img src="img/icons/367.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Solana
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="13">
+                                                <img src="img/icons/13.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Litecoin
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="272">
+                                                <img src="img/icons/272.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Dash
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="84">
+                                                <img src="img/default_icons/ps88/ps-tron.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Tron
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="80">
+                                                <img src="img/default_icons/ps88/ps-stellar.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Stellar
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="82">
+                                                <img src="img/default_icons/ps88/ps-cardano.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Cardano (ADA)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="70">
+                                                <img src="img/icons/70.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Ripple
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="55">
+                                                <img src="img/default_icons/ps88/ps-zcash.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                ZCash
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="62">
+                                                <img src="img/icons/62.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Bitcoin Cash
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="323">
+                                                <img src="img/default_icons/ps88/ps-bnb.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                BNB BEP20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="90">
+                                                <img src="img/default_icons/ps88/ps-bnb.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Binance Coin (BNB)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="75">
+                                                <img src="img/icons/75.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Ethereum classic (ETC)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="273">
+                                                <img src="img/icons/273.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Dogecoin
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="417">
+                                                <img src="img/icons/417.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Toncoin
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="223">
+                                                <img src="img/default_icons/ps88/ps-atom.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Cosmos (ATOM)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="308">
+                                                <img src="img/icons/308.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Polkadot
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="63">
+                                                <img src="img/default_icons/svg/bitcoin_gold.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Bitcoin Gold
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="400">
+                                                <img src="img/icons/400.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Avalanche (AVAX)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="128">
+                                                <img src="img/default_icons/ps88/ps-bittorrent.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                BitTorrent 
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="201">
+                                                <img src="img/icons/151.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Tezos
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="182">
+                                                <img src="img/default_icons/ps/ps-link.png" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Chainlink (LINK)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="247">
+                                                <img src="img/icons/247.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Ravencoin
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="246">
+                                                <img src="img/icons/246.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Basic Attention Token (BAT)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="464">
+                                                <img src="img/icons/464.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Decentraland (MANA)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="380">
+                                                <img src="img/icons/380.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                MATIC
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="474">
+                                                <img src="img/icons/474.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                NEAR Protocol
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="395">
+                                                <img src="img/icons/395.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                CRO cronos
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="284">
+                                                <img src="img/icons/284.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                yearn finance (YFI)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="79">
+                                                <img src="img/icons/79.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                NEM
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="276">
+                                                <img src="img/icons/276.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Algorand
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="283">
+                                                <img src="img/icons/283.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                WBTC ERC20
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="293">
+                                                <img src="img/icons/293.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                Uniswap (UNI)
+                                            </div>
+                                            <div class="dropdown-menu__item"
+                                                data-shortname="379">
+                                                <img src="img/icons/379.svg" class="mr-2_5" width="24"
+                                                    height="24" alt="">
+                                                SHIBA INU (SHIB)
+                                            </div>
+                                        </div>
+                                        <div class="flex-wrap w-100 calculator__list" id="check-out">
+                                        </div>
+
+                                        <div class="flex-wrap w-100 calculator__list" id="cash-out">
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div
+                class="calculator__direction-info d-none ml-20 d-lg-flex flex-column justify-content-between">
+                <div class="home-banner__block-info-item mt-lg-8" style="margin-top: 18px !important;">
+                    <span class="-3 home-banner__block-info-item-label">Курс валюты:</span>
+                    <br>
+                    <span class="home-banner__block-info-item-value calculator__course"></span>
+                </div>
+                <div class="home-banner__block-info-item mb-2">
+                    <span
+                        class="-3 home-banner__block-info-item-label calculator__reserve-text" >Минимальная сумма:</span> <br>
+                    <span class="home-banner__block-info-item-value calculator__reserve"></span>
+                </div>
+                <div class="home-banner__block-info-item mb-2">
+                    <span
+                        class="-3 home-banner__block-info-item-label calculator__discount-text">Максимальная сумма:</span>
+                    <br>
+                    <span class="home-banner__block-info-item-value calculator__discount"></span>
+                </div>
+            </div>
+        </div>
+        <div class="home-banner__block-info d-lg-none">
+            <div class="home-banner__block-info-item d-flex">
+                <span class="-3 home-banner__block-info-item-label">Курс обмена:</span>
+                <span class="home-banner__block-info-item-value calculator__course"></span>
+            </div>
+            <div class="home-banner__block-info-item d-flex">
+                <span
+                    class="-3 home-banner__block-info-item-label calculator__reserve-text">Минимальная сумма:</span>
+                <span class="home-banner__block-info-item-value calculator__reserve"></span>
+            </div>
+            <div class="home-banner__block-info-item d-flex">
+                <span
+                    class="-3 home-banner__block-info-item-label calculator__discount-text">Максимальная сумма:</span>
+                <span class="home-banner__block-info-item-value calculator__discount"></span>
+            </div>
+        </div>
+        <div class="calculator__bottom">
+            <div style="flex: 1;">
+                <div class="calculator_requisites">
+                    <div class="form-group requisite"  data-id="req_AcJkR8omFAo8a8fe">
+                        <label class="font-weight-normal" for="req_AcJkR8omFAo8a8fe" style="color: #ebbd34;">Ваш E-mail:</label>
+                        <div class="form-field">
+                            <input type="text" autocomplete="off" id="req_AcJkR8omFAo8a8fe" data-id="req_AcJkR8omFAo8a8fe" name="mail" placeholder="name@outlook.com" name="email" class="form-control">
+                        </div>
+                    </div>
+                
+                    <div class="form-group requisite" data-id="req_V0pl7nmFRSzJEURJ">
+                        <label class="font-weight-normal" for="req_V0pl7nmFRSzJEURJ" style="color: #ebbd34;">Мой Кошелёк:</label>
+                        <div class="form-field">
+                            <input type="text" autocomplete="off" id="req_V0pl7nmFRSzJEURJ" name="wallet" data-id="req_V0pl7nmFRSzJEURJ" value="" placeholder="Например: 1fX5em1pl6cKft2MUGLxAG7Nln2Zz62BMs" name="to_acc" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" style="max-width: 440px;">
+                    <label class="font-weight-normal" for="coupon-input" style="color: #ebbd34;">Промокод:</label>
+                    <div class="form-field">
+                        <input type="text" id="coupon-input" value="" name="cupon" placeholder="Купон"
+                            class="form-control calculator__coupon">
+                    </div>
+                </div>
+            </div>
+            <div class="calculator__direction-add-info">
+            </div>
+        </div>
+        <div class="form-check mb-5 mt-5">
+            <input class="form-check-input" id="acceptRules" type="checkbox">
+            <label class="form-check-label" for="acceptRules" style="color: white;" name="Agreement">Я согласен с <a href="rules.html"
+                    target="_blank">правилами обмена</a></label>
+        </div>
+        <div class="home-banner__block-footer d-lg-flex align-items-lg-center mt-lg-7_5">
+            <button
+                class="btn btn-primary w-100 w-lg-150px mb-3 mb-lg-0 mr-7_5 calculator__create-order"
+                type="submit">Обменять</button>
+            <span class="-3 home-banner__block-footer-notify calculator__min-max">
+                <br>
+            </span>
+        </div>
+    </div>
+</form>

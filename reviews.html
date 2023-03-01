@@ -5,7 +5,7 @@
     <base href="">
     <meta charset="utf-8">
 
-    <title>AlfaChange</title>
+    <title>MaxChange</title>
     <meta name="description" content="ОБМЕН ЭЛЕКТРОННЫХ ВАЛЮТ">
     <meta name="keywords" content="Bitcoin, Ethereum, Crypto, Exchanger, Change">
 
@@ -1340,27 +1340,29 @@
                 </div>
                 <div class="col-lg-4 offset-lg-1">
                     <h4 class="mb-3_75 mb-lg-8" style="color: #ebbd34;">Оставьте свой отзыв</h4>
-                    <div class="form-group mb-3">
-                        <label class="font-weight-normal" for="reviewsName" style="color: #ebbd34;">Ваше имя</label>
-                        <div class="form-field">
-                            <input type="text" class="form-control font-size-lg-14" placeholder="Введите ваше имя"
-                                id="reviewsName">
+                    <form method="post">
+                        <div class="form-group mb-3">
+                            <label class="font-weight-normal" for="reviewsName" style="color: #ebbd34;">Ваше имя</label>
+                            <div class="form-field">
+                                <input type="text" class="form-control font-size-lg-14" name="fName" placeholder="Введите ваше имя"
+                                    id="reviewsName">
+                            </div>
                         </div>
-                    </div>
-                    <div class="form-group mb-3">
-                        <label class="font-weight-normal" for="reviewsMsg" style="color: #ebbd34;">Отзыв</label>
-                        <div class="form-field">
-                            <textarea placeholder="Ваш отзыв о нашем сервисе" type="text"
-                                class="form-control font-size-lg-14" rows="5"
-                                style="resize: none; max-height: 50px; line-height: 39px;" id="reviewsMsg"></textarea>
+                        <div class="form-group mb-3">
+                            <label class="font-weight-normal" for="reviewsMsg" style="color: #ebbd34;">Отзыв</label>
+                            <div class="form-field">
+                                <textarea placeholder="Ваш отзыв о нашем сервисе" type="text" name="reviewText"
+                                    class="form-control font-size-lg-14" rows="5"
+                                    style="resize: none; max-height: 50px; line-height: 39px;" id="reviewsMsg"></textarea>
+                            </div>
                         </div>
-                    </div>
 
-                    <button class="btn btn-primary w-100 mt-10 w-lg-200px mt-lg-7_5 h-lg-50px font-size-lg-16"
-                        id="reviewsSend">Оставить отзыв</button>
+                        <button class="btn btn-primary w-100 mt-10 w-lg-200px mt-lg-7_5 h-lg-50px font-size-lg-16"
+                            id="reviewsSend" type="submit">Оставить отзыв</button>
 
-                    <div style="margin-top: 40px;">
-                    </div>
+                        <div style="margin-top: 40px;">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -1439,10 +1441,10 @@
                         <img src="logo.svg" alt="">
                     </a>
                     <p class="text-yellow-3 footer__copyright mb-0 mt-1"  style="margin-top: 15px !important; color: #ebbd34;">Copyright
-                        AlfaChange © 2023
+                        MaxChange © 2023
                     </p>
 
-                    <a href="https://kurs.expert/ru/obmennik/alfachange-com" title="Обмен Биткоин, Киви, Яндекс, AdvCash"
+                    <a href="https://kurs.expert/ru/obmennik/MaxChange-com" title="Обмен Биткоин, Киви, Яндекс, AdvCash"
                         target="_blank" rel="noopener" disabled="disabled" aria-disabled="true"
                         style="display:block; margin-top: 20px; filter: invert(1)">
                         <img src="https://kurs.expert/i/logo.png" width="31" height="31" border="0">
@@ -1482,7 +1484,7 @@
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
         (function() {
-            var u="https://matomo.alfachange.net/";
+            var u="https://matomo.MaxChange.net/";
             _paq.push(['setTrackerUrl', u+'matomo.php']);
             _paq.push(['setSiteId', '2']);
             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];

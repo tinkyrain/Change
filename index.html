@@ -5,7 +5,7 @@
     <base href="">
     <meta charset="utf-8">
 
-    <title>AlfaChange</title>
+    <title>MaxChange</title>
     <meta name="description" content="ОБМЕН ЭЛЕКТРОННЫХ ВАЛЮТ">
     <meta name="keywords" content="Bitcoin, Ethereum, Crypto, Exchanger, Change">
 
@@ -247,13 +247,14 @@
             </div>
             <div class="row home-banner__blocks" style="align-items: flex-start;">
                 <div class="col-lg-8 calculator_wrap">
+                    <form>
                     <div class="home-banner__block" id="calculator">
                             <div class="home-banner__change d-lg-flex">
                             <div class="w-lg-440px calculator__form">
                                 <div class="form-group position-relative calculator_ps-in">
                                     <label style="color: #ebbd34;">Из валюты:</label>
                                     <div class="form-field" style="border: 1px solid #ebbd34;">
-                                        <input class="form-control calculator__input" style='border: none;' placeholder="Сумма" type="text">
+                                        <input class="form-control calculator__input" style='border: none;' placeholder="Сумма" type="text" name="inVal">
                                         <div class="form-currency calculator__currency"></div>
                                         <div class="dropdown">
                                             <button class="dropdown-btn" type="button">
@@ -271,7 +272,7 @@
                                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                                 <div class="form-field form-field--search"
                                                     style="padding-right: 236px;">
-                                                    <input type="text" name="" id=""
+                                                    <input type="text" name="search" id=""
                                                         class="form-control calculator__search" placeholder="Поиск..." style="border: none">
                                                 </div>
                                                 <div class="calculator__groups">
@@ -589,7 +590,7 @@
                                         </svg>
                                     </button>
                                     <div class="form-field" style="border: 1px solid #ebbd34;">
-                                        <input class="form-control calculator__input" placeholder="Сумма" type="text" style="border: none;">
+                                        <input class="form-control calculator__input" placeholder="Сумма" type="text" style="border: none;" name="sum">
                                         <div class="form-currency calculator__currency"></div>
                                         <div class="dropdown">
                                             <button class="dropdown-btn" type="button">
@@ -608,7 +609,7 @@
                                                 <div class="form-field form-field--search"
                                                     style="padding-right: 236px;">
                                                     <input type="text" name="" id=""
-                                                        class="form-control calculator__search" placeholder="Поиск..." style="border: none;">
+                                                        class="form-control calculator__search" name="search" placeholder="Поиск..." style="border: none;">
                                                 </div>
                                                 <div class="calculator__groups">
                                                     <div class="calculator__groups_inner">
@@ -963,21 +964,21 @@
                                     <div class="form-group requisite"  data-id="req_AcJkR8omFAo8a8fe">
                                         <label class="font-weight-normal" for="req_AcJkR8omFAo8a8fe" style="color: #ebbd34;">Ваш E-mail:</label>
                                         <div class="form-field">
-                                            <input type="text" autocomplete="off" id="req_AcJkR8omFAo8a8fe" data-id="req_AcJkR8omFAo8a8fe"  placeholder="name@outlook.com" name="email" class="form-control">
+                                            <input type="text" autocomplete="off" id="req_AcJkR8omFAo8a8fe" data-id="req_AcJkR8omFAo8a8fe" name="mail" placeholder="name@outlook.com" name="email" class="form-control">
                                         </div>
                                     </div>
                                 
                                     <div class="form-group requisite" data-id="req_V0pl7nmFRSzJEURJ">
                                         <label class="font-weight-normal" for="req_V0pl7nmFRSzJEURJ" style="color: #ebbd34;">Мой Кошелёк:</label>
                                         <div class="form-field">
-                                            <input type="text" autocomplete="off" id="req_V0pl7nmFRSzJEURJ" data-id="req_V0pl7nmFRSzJEURJ" value="" placeholder="Например: 1fX5em1pl6cKft2MUGLxAG7Nln2Zz62BMs" name="to_acc" class="form-control">
+                                            <input type="text" autocomplete="off" id="req_V0pl7nmFRSzJEURJ" name="wallet" data-id="req_V0pl7nmFRSzJEURJ" value="" placeholder="Например: 1fX5em1pl6cKft2MUGLxAG7Nln2Zz62BMs" name="to_acc" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group" style="max-width: 440px;">
                                     <label class="font-weight-normal" for="coupon-input" style="color: #ebbd34;">Промокод:</label>
                                     <div class="form-field">
-                                        <input type="text" id="coupon-input" value="" placeholder="Купон"
+                                        <input type="text" id="coupon-input" value="" name="cupon" placeholder="Купон"
                                             class="form-control calculator__coupon">
                                     </div>
                                 </div>
@@ -987,13 +988,13 @@
                         </div>
                         <div class="form-check mb-5 mt-5">
                             <input class="form-check-input" id="acceptRules" type="checkbox">
-                            <label class="form-check-label" for="acceptRules" style="color: white;">Я согласен с <a href="rules.html"
+                            <label class="form-check-label" for="acceptRules" style="color: white;" name="Agreement">Я согласен с <a href="rules.html"
                                     target="_blank">правилами обмена</a></label>
                         </div>
                         <div class="home-banner__block-footer d-lg-flex align-items-lg-center mt-lg-7_5">
                             <button
                                 class="btn btn-primary w-100 w-lg-150px mb-3 mb-lg-0 mr-7_5 calculator__create-order"
-                                type="button">Обменять</button>
+                                type="submit">Обменять</button>
                             <span class="-3 home-banner__block-footer-notify calculator__min-max">
 
                                 <br>
@@ -1001,6 +1002,7 @@
                             </span>
                         </div>
                     </div>
+                    </form>
                 </div>
                 <div class="col-lg-4 reserves_wrap">
                     <div class="home-banner__reserv">
@@ -1483,10 +1485,10 @@
                         <img src="logo.svg" alt="">
                     </a>
                     <p class="text-yellow-3 footer__copyright mb-0 mt-1"  style="margin-top: 15px !important; color: #ebbd34;">Copyright
-                        AlfaChange © 2023
+                        MaxChange © 2023
                     </p>
 
-                    <a href="https://kurs.expert/ru/obmennik/alfachange-com" title="Обмен Биткоин, Киви, Яндекс, AdvCash"
+                    <a href="https://kurs.expert/ru/obmennik/MaxChange-com" title="Обмен Биткоин, Киви, Яндекс, AdvCash"
                         target="_blank" rel="noopener" disabled="disabled" aria-disabled="true"
                         style="display:block; margin-top: 20px; filter: invert(1)">
                         <img src="https://kurs.expert/i/logo.png" width="31" height="31">
@@ -1526,7 +1528,7 @@
         _paq.push(['trackPageView']);
         _paq.push(['enableLinkTracking']);
         (function() {
-            var u="https://matomo.alfachange.net/";
+            var u="https://matomo.MaxChange.net/";
             _paq.push(['setTrackerUrl', u+'matomo.php']);
             _paq.push(['setSiteId', '2']);
             var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
