@@ -1375,13 +1375,13 @@ pre code{
     background-color:#c8cbcf
 }
 .table-success,.table-success>td,.table-success>th{
-    background-color:#bdf0de
+    background-color:#0C162A
 }
 .table-success tbody+tbody,.table-success td,.table-success th,.table-success thead th{
-    border-color:#84e3c1
+    border-color:#0C162A;
 }
 .table-hover .table-success:hover,.table-hover .table-success:hover>td,.table-hover .table-success:hover>th{
-    background-color:#a8ebd4
+    background-color:#0C162A
 }
 .table-info,.table-info>td,.table-info>th{
     background-color:#bee5eb
@@ -1764,7 +1764,7 @@ select.form-control[multiple],select.form-control[size],textarea.form-control{
     display:block
 }
 .form-control.is-valid,.was-validated .form-control:valid{
-    border-color:#13ca88;
+    border-color: #0C162A;
     padding-right:calc(1.5em + .75rem);
     background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2313ca88' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e");
     background-repeat:no-repeat;
@@ -1772,7 +1772,7 @@ select.form-control[multiple],select.form-control[size],textarea.form-control{
     background-size:calc(.75em + .375rem) calc(.75em + .375rem)
 }
 .form-control.is-valid:focus,.was-validated .form-control:valid:focus{
-    border-color:#13ca88;
+    border-color:#0C162A;
     box-shadow:0 0 0 .2rem rgba(19,202,136,.25)
 }
 .was-validated textarea.form-control:valid,textarea.form-control.is-valid{
@@ -1780,38 +1780,38 @@ select.form-control[multiple],select.form-control[size],textarea.form-control{
     background-position:top calc(.375em + .1875rem) right calc(.375em + .1875rem)
 }
 .custom-select.is-valid,.was-validated .custom-select:valid{
-    border-color:#13ca88;
+    border-color:#0C162A;
     padding-right:calc(.75em + 2.3125rem);
     background:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") no-repeat right .75rem center/8px 10px,url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%2313ca88' d='M2.3 6.73L.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e") #fff no-repeat center right 1.75rem/calc(.75em + .375rem) calc(.75em + .375rem)
 }
 .custom-select.is-valid:focus,.was-validated .custom-select:valid:focus{
-    border-color:#13ca88;
+    border-color:#0C162A;
     box-shadow:0 0 0 .2rem rgba(19,202,136,.25)
 }
 .form-check-input.is-valid~.form-check-label,.was-validated .form-check-input:valid~.form-check-label{
-    color:#13ca88
+    color:#0C162A
 }
 .form-check-input.is-valid~.valid-feedback,.form-check-input.is-valid~.valid-tooltip,.was-validated .form-check-input:valid~.valid-feedback,.was-validated .form-check-input:valid~.valid-tooltip{
     display:block
 }
 .custom-control-input.is-valid~.custom-control-label,.was-validated .custom-control-input:valid~.custom-control-label{
-    color:#13ca88
+    color:#0C162A
 }
 .custom-control-input.is-valid~.custom-control-label::before,.custom-file-input.is-valid~.custom-file-label,.was-validated .custom-control-input:valid~.custom-control-label::before,.was-validated .custom-file-input:valid~.custom-file-label{
-    border-color:#13ca88
+    border-color:#0C162A
 }
 .custom-control-input.is-valid:checked~.custom-control-label::before,.was-validated .custom-control-input:valid:checked~.custom-control-label::before{
-    border-color:#25eba3;
-    background-color:#25eba3
+    border-color:#0C162A;
+    background-color:#0C162A
 }
 .custom-control-input.is-valid:focus~.custom-control-label::before,.was-validated .custom-control-input:valid:focus~.custom-control-label::before{
     box-shadow:0 0 0 .2rem rgba(19,202,136,.25)
 }
 .custom-control-input.is-valid:focus:not(:checked)~.custom-control-label::before,.was-validated .custom-control-input:valid:focus:not(:checked)~.custom-control-label::before{
-    border-color:#13ca88
+    border-color:#0C162A
 }
 .custom-file-input.is-valid:focus~.custom-file-label,.was-validated .custom-file-input:valid:focus~.custom-file-label{
-    border-color:#13ca88;
+    border-color:#0C162A;
     box-shadow:0 0 0 .2rem rgba(19,202,136,.25)
 }
 .invalid-feedback{
@@ -2034,29 +2034,29 @@ a.btn.disabled,fieldset:disabled a.btn{
 }
 .btn-success{
     color:#fff;
-    background-color:#13ca88;
-    border-color:#13ca88
+    background-color:#0C162A;
+    border-color:#0C162A
 }
 .btn-success:hover{
     color:#fff;
-    background-color:#10a770;
-    border-color:#0f9b69
+    background-color:#0C162A;
+    border-color:#0C162A
 }
 .btn-success.focus,.btn-success:focus{
     color:#fff;
-    background-color:#10a770;
-    border-color:#0f9b69;
+    background-color:#0C162A;
+    border-color:#0C162A;
     box-shadow:0 0 0 .2rem rgba(54,210,154,.5)
 }
 .btn-success.disabled,.btn-success:disabled{
     color:#fff;
-    background-color:#13ca88;
-    border-color:#13ca88
+    background-color:#0C162A;
+    border-color:#0C162A
 }
 .btn-success:not(:disabled):not(.disabled).active,.btn-success:not(:disabled):not(.disabled):active,.show>.btn-success.dropdown-toggle{
     color:#fff;
-    background-color:#0f9b69;
-    border-color:#0e9061
+    background-color:#0C162A;
+    border-color:#0C162A
 }
 .btn-success:not(:disabled):not(.disabled).active:focus,.btn-success:not(:disabled):not(.disabled):active:focus,.show>.btn-success.dropdown-toggle:focus{
     box-shadow:0 0 0 .2rem rgba(54,210,154,.5)
@@ -2560,8 +2560,8 @@ a.btn.disabled,fieldset:disabled a.btn{
 }
 .btn-outline-success:not(:disabled):not(.disabled).active,.btn-outline-success:not(:disabled):not(.disabled):active,.show>.btn-outline-success.dropdown-toggle{
     color:#fff;
-    background-color:#13ca88;
-    border-color:#13ca88
+    background-color:#0C162A;
+    border-color:#0C162A
 }
 .btn-outline-success:not(:disabled):not(.disabled).active:focus,.btn-outline-success:not(:disabled):not(.disabled):active:focus,.show>.btn-outline-success.dropdown-toggle:focus{
     box-shadow:0 0 0 .2rem rgba(19,202,136,.5)
