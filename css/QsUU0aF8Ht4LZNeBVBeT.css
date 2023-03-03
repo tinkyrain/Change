@@ -1757,7 +1757,7 @@ select.form-control[multiple],select.form-control[size],textarea.form-control{
     font-size:.875rem;
     line-height:1.5;
     color:#fff;
-    background-color:rgba(19,202,136,.9);
+    background-color:#0C162A;
     border-radius:8px
 }
 .is-valid~.valid-feedback,.is-valid~.valid-tooltip,.was-validated :valid~.valid-feedback,.was-validated :valid~.valid-tooltip{
