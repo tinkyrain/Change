@@ -2989,6 +2989,7 @@ a.btn.disabled,fieldset:disabled a.btn{
         transition:none
     }
 }
+
 .dropdown,.dropleft,.dropright,.dropup{
     position:relative
 }
@@ -15563,11 +15564,11 @@ h6{
         font-weight:400;
         font-size:14px;
         line-height:120%;
-        color:#424a65;
+        color: white;
         text-decoration:none
     }
     .header__menu-desktop a.active,.header__menu-desktop a:hover{
-        color:#ebbd34
+        color:#ebbd34;
     }
     .header__menu-desktop a.active::after,.header__menu-desktop a:hover::after{
         content:"";
@@ -15607,7 +15608,7 @@ h6{
     font-weight:400;
     font-size:14px;
     line-height:120%;
-    color:#424a65;
+    color:white;
     text-decoration:none
 }
 .header__menu-mobile a.active,.header__menu-mobile a:hover{
