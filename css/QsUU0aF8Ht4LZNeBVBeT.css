@@ -15020,7 +15020,8 @@ h6{
     right:0;
     top:0
 }
-.form-control{
+.form-control,
+.form-control:disabled{
     flex-grow:1;
     min-width:0;
     width:auto;
@@ -15037,6 +15038,7 @@ h6{
     color: #ebbd34;
     background-color: #253557;
 }
+
 @media (min-width:992px){
     .form-control{
         font-size:16px
