@@ -5323,7 +5323,7 @@
 
                 console.log(params)
 
-                let response = await fetch('https://httpbin.org/post', {
+                await fetch('https://httpbin.org/post', {
                     method: "POST",
                     headers: {
                         'Content-Type': 'application/json;charset=utf-8'
