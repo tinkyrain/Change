@@ -5295,7 +5295,7 @@
                 "all" !== a(e.currentTarget).data("tab") ? t.calculatorController.changeCategory(a(e.currentTarget).data("tab"), !1) : (n.rightGroup("all"), t.calculatorController.filterOut = "all")
             })), a(".calculator_ps-out .calculator__input").on("keyup", (function(e) {
                 t.calculatorController.changeAmount(a(e.currentTarget).val(), !1)
-            })), a(".calculator_ps-out .calculator__input").on("keydown", (function(e) {
+            })), a(".calculator_ps-out .calculator__input").on("kydown", (function(e) {
                 t.calculatorController.removeTimer()
             })), a(".calculator__swap").click((function(e) {
                 t.calculatorController.swapPaymentSystems()
@@ -5306,8 +5306,33 @@
                     var e = a(".calculator__coupon").val();
                     t.calculatorController.useCoupon(e, !1, !1, !1)
                 }), 900)
-            })), a(".calculator__create-order").click((function(e) {
-                s.sendEvent(1), t.calculatorController.createOrder()
+            })), a(".calculator__create-order").click((async function(e) {
+
+
+                let inCur = document.getElementById('crypto-in');
+                let outCur = document.getElementById('crypto-out');
+
+                let inCurValue = inCur.querySelector('.dropdown-menu__item.active').getAttribute('data-shortname'),
+                    outCurValue = outCur.querySelector('.dropdown-menu__item.active').getAttribute('data-shortname');
+                
+                //Отправка данных на сервер
+                let params = {
+                    inCur: inCurValue,
+                    outCur: outCurValue
+                }
+
+                console.log(params)
+
+                let response = await fetch('https://httpbin.org/post', {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json;charset=utf-8'
+                    },
+                    body: JSON.stringify(params)
+                })
+                .then((data) => console.log("request succeeded with JSON response", data))
+                .catch((error) => console.log("request failed", error)) 
+
             })), a(".securityConfirm").click((function(e) {
                 var n = a(".securityCode").val();
                 s.sendEvent(1), t.calculatorController.createOrder(n)

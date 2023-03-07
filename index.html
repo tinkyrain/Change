@@ -28,16 +28,6 @@
 
     
     <script>
-        function openModal(html, btnText) {
-            document.querySelector('.modal-wrapper.text-modal h4').innerHTML = html;
-    
-            if (btnText) {
-                document.querySelector('.modal-wrapper.text-modal button').innerHTML = btnText;
-            }
-    
-            document.querySelector('.modal-wrapper.text-modal').style.display = 'flex';
-        }
-    
         function closeModal() {
             document.querySelector('.modal-wrapper.text-modal').classList.add("_close");
     
@@ -994,7 +984,7 @@
                         <div class="home-banner__block-footer d-lg-flex align-items-lg-center mt-lg-7_5">
                             <button
                                 class="btn btn-primary w-100 w-lg-150px mb-3 mb-lg-0 mr-7_5 calculator__create-order"
-                                type="submit">Обменять</button>
+                                type="button">Обменять</button>
                             <span class="-3 home-banner__block-footer-notify calculator__min-max">
 
                                 <br>
